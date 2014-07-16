@@ -12,4 +12,4 @@ Now, your opinion really does matter... or maybe not.
 
 
 <h4>Licenses</h4>
-This software uses a GPL
+This software uses the GNU General Public License
