@@ -1,0 +1,11 @@
+<h1>Welcome <%= @user.username %></h1>
+
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag :q, nil, :placeholder => "Bernie's Bistro, Sushi, BBQ..."
+  %>
+  <%= submit_tag("Search") %>
+<% end %>
+<p>edit later</p>
