@@ -17,4 +17,6 @@ describe SessionsController do
     it "should redirect to /login if user is not authenticated" do
     end
   end
+
+
 end
