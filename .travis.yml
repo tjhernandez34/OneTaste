@@ -6,8 +6,8 @@ rvm:
   - "1.9.3"
 
 before_script:
-  - be rake db:drop
-  - be rake db:create
-  - be rake db:migrate
+  - bundle exec rake db:drop
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 
 script: bundle exec rspec spec
