@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/OneTaste/app/controllers/restaurants_controller.rb": [
+      "/Users/apprentice/onetaste/app/controllers/restaurants_controller.rb": [
         1,
         null,
         1,
@@ -36,14 +36,14 @@
         null,
         null
       ],
-      "/Users/apprentice/OneTaste/app/controllers/application_controller.rb": [
+      "/Users/apprentice/onetaste/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/apprentice/OneTaste/app/controllers/sessions_controller.rb": [
+      "/Users/apprentice/onetaste/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -68,7 +68,7 @@
         null,
         null
       ],
-      "/Users/apprentice/OneTaste/app/controllers/users_controller.rb": [
+      "/Users/apprentice/onetaste/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -76,8 +76,8 @@
         null,
         null,
         1,
-        1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
@@ -89,11 +89,11 @@
         1,
         null,
         1,
-        1,
+        2,
         null,
         null
       ],
-      "/Users/apprentice/OneTaste/app/models/comment.rb": [
+      "/Users/apprentice/onetaste/app/models/comment.rb": [
         1,
         1,
         1,
@@ -105,7 +105,7 @@
         1,
         null
       ],
-      "/Users/apprentice/OneTaste/app/models/restaurant.rb": [
+      "/Users/apprentice/onetaste/app/models/restaurant.rb": [
         1,
         1,
         1,
@@ -120,7 +120,7 @@
         1,
         null
       ],
-      "/Users/apprentice/OneTaste/app/models/review.rb": [
+      "/Users/apprentice/onetaste/app/models/review.rb": [
         1,
         1,
         1,
@@ -131,7 +131,7 @@
         1,
         null
       ],
-      "/Users/apprentice/OneTaste/app/models/user.rb": [
+      "/Users/apprentice/onetaste/app/models/user.rb": [
         1,
         1,
         null,
@@ -146,7 +146,7 @@
         1,
         null
       ],
-      "/Users/apprentice/OneTaste/app/models/vote.rb": [
+      "/Users/apprentice/onetaste/app/models/vote.rb": [
         1,
         1,
         1,
@@ -157,6 +157,6 @@
         null
       ]
     },
-    "timestamp": 1405640211
+    "timestamp": 1405641003
   }
 }

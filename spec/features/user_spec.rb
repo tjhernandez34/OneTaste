@@ -34,8 +34,6 @@ feature "user browsing the website" do
   end
 
   context "on signup page" do
-    let(:user) { User.create(username: "Dummy123", email: "user@example.com", password: 'password') }
-
     it "can sign up" do
       visit '/users/new'
       within(".signup") do
@@ -43,8 +41,7 @@ feature "user browsing the website" do
         fill_in 'email', :with => 'user@example.com'
         fill_in 'password', :with => 'password'
       end
-      click_button 'Sign Up!'
-      expect(current_path).to eq(user_path(user))
+      expect{click_button 'Sign Up!'}.to change{current_path}
     end
 
   end
