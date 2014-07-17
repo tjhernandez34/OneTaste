@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_secure_password
+
   has_many :reviews, foreign_key: "reviewer_id"
   has_many :points, through: :reviews, source: :votes
   has_many :comments, foreign_key: "commenter_id"

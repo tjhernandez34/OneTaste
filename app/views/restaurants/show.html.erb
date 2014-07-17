@@ -1,0 +1,13 @@
+  <b><p><%= @restaurant.name %></p></b>
+  <p><%= @restaurant.street_address%></p>
+  <p><%= @restaurant.city %>, <%=@restaurant.state%></p><br>
+
+<div id='review_box'>
+  <p><b><%= @restaurant.reviews.each do |review|%></b></p>
+  <p><%= review.title %></p>
+  <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
+  <p><%= review.content%></p>
+  <br>
+
+  <% end %>
+</div>
