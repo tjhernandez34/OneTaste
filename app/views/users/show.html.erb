@@ -1,16 +1,12 @@
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag :q, nil, :placeholder => "Bernie's Bistro, Sushi, BBQ..."
-  %>
-  <%= submit_tag("Search") %>
-<% end %>
-
 <% if session[:user_id] == @user.id %>
 <h1>Welcome <%= @user.username %></h1>
 
 <%= link_to "Create Restaurant", new_restaurant_path %>
-
-
+<h2>User Restaurants</h2>
+<% @user.restaurants.each do |restaurant| %>
+  <p><b><%= link_to "#{restaurant.name}",restaurant_path(restaurant) %></b></p>
+  <p>Upvotes:  <%= restaurant.votes.count %></p>
+<% end %>
 
 
 
@@ -18,13 +14,13 @@
 
 <%else %>
 <h1><%= @user.username %></h1>
+<% end %>
 <h2>User Reviews</h2>
 <% @user.reviews.each do |review| %>
   <p><b><%= review.restaurant.name %></b></p>
   <p><%= review.title %></p>
   <p><%= review.content %></p>
   <p>Upvotes:  <%= review.votes.count %></p>
-<% end %>
 <% end %>
 
 

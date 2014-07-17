@@ -1,0 +1,15 @@
+<% food_array = ["Asian", "Chinese", "Italian", "Seafood", "Mexican", "Japanese", "Sushi", "Thai", "Indian", "Steak", "American", "Pizza", "Vegetarian", "Cajun", "Pub Food", "French", "Middle Eastern", "Greek", "Mediterranean", "Spanish", "Korean", "Moroccan", "BBQ", "Soul", "Sandwiches"] %>
+<h2>Create a Restaurant</h2>
+<%= form_for @restaurant do |f| %>
+<p><%= f.text_field :name, :placeholder => "Name" %></p>
+<p><%= f.text_field :street_address, :placeholder => "Street Address"  %></p>
+<p><%= f.text_field :city, :placeholder => "City"  %></p>
+<p><%= f.text_field :state, :placeholder => "State Abbr."  %></p>
+<p><%= select("restaurant", "category", food_array.sort )%></p>
+<%= f.hidden_field :creator_id, value: session[:user_id] %>
+<p><%= f.submit "Create" %></p>
+<% end %>
+
+
+
+

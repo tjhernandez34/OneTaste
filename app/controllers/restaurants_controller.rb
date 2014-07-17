@@ -8,7 +8,23 @@ class RestaurantsController < ApplicationController
     @results = Restaurant.search(params[:search])
   end
 
+  def new
+    @restaurant = Restaurant.new
+  end
+
+  def create
+    @restaurant = Restaurant.create(restaurant_params)
+    redirect_to restaurant_path(@restaurant)
+
+  end
+
   def show
     @restaurant = Restaurant.find(params[:id])
+  end
+
+
+private
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :creator_id, :street_address, :city, :state, :category)
   end
 end
