@@ -1,4 +1,4 @@
-One Taste at a Time [![Build Status](https://travis-ci.org/tjhernandez34/OneTaste.svg?branch=master.png)](https://travis-ci.org/tjhernandez34/OneTaste)
+One Taste at a Time [![Build Status](https://travis-ci.org/tjhernandez34/OneTaste.svg?branch=master.png)](https://travis-ci.org/tjhernandez34/OneTaste)[![Coverage Status](https://coveralls.io/repos/tjhernandez34/OneTaste/badge.png)](https://coveralls.io/r/tjhernandez34/OneTaste)
 ========
 
 
