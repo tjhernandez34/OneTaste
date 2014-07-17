@@ -5,7 +5,7 @@
 <div id='review_box'>
   <p><b><%= @restaurant.reviews.each do |review|%></b></p>
   <p><%= review.title %></p>
-  <p><%= link_to "#{review.reviewer.username}", review.reviewer.username %></p>
+  <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
   <p><%= review.content%></p>
   <br>
 
