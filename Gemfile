@@ -32,10 +32,11 @@ group :Development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner', '~> 1.2.0'
+  gem 'shoulda-matchers', require: false
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
