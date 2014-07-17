@@ -5,12 +5,11 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+
 <% if session[:user_id] == @user.id %>
 <h1>Welcome <%= @user.username %></h1>
 
 <%= link_to "Create Restaurant", new_restaurant_path %>
-
-
 
 
 
