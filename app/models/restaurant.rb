@@ -4,7 +4,8 @@ class Restaurant < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
 
   def self.search(search)
-    @restaurants = where('name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%")
+    search.titleize!
+    @restaurants = where('name LIKE ? OR category LIKE ? OR city LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
   validates_uniqueness_of :street_address

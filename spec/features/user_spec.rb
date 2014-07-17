@@ -6,14 +6,14 @@ feature "user browsing the website" do
 
     it "can click a link to a sign in page" do
       visit '/'
-      click_on("Sign in")
-      expect(current_path).to eq('/signin')
+      click_on("Login")
+      expect(current_path).to eq('/login')
     end
 
     it "can click a link to a sign up page" do
       visit '/'
-      click_on("Sign up")
-      expect(current_path).to eq('/signup')
+      click_on("Create Account")
+      expect(current_path).to eq('/users/new')
     end
 
   end
@@ -27,7 +27,7 @@ feature "user browsing the website" do
         fill_in 'Email', :with => 'user@example.com'
         fill_in 'Password', :with => 'password'
       end
-      click_button 'Sign in'
+      click_button 'Login!'
       expect(current_path).to eq(user_path(user))
     end
 
@@ -37,13 +37,13 @@ feature "user browsing the website" do
     let(:user) { User.create(username: "Dummy123", email: "user@example.com", password: 'password') }
 
     it "can sign up" do
-      visit '/signup'
+      visit '/users/new'
       within(".signup") do
-        fill_in 'Email', :with => 'user@example.com'
-        fill_in 'Password', :with => 'password'
-        fill_in 'Username', :with => 'Dummy123'
+        fill_in 'username', :with => 'Dummy123'
+        fill_in 'email', :with => 'user@example.com'
+        fill_in 'password', :with => 'password'
       end
-      click_button 'Sign up'
+      click_button 'Sign Up!'
       expect(current_path).to eq(user_path(user))
     end
 
@@ -61,9 +61,9 @@ feature "user browsing the website" do
     it "can search restaurants and categories of food" do
       visit user_path(user)
       within(".search") do
-        fill_in 'Search', :with => 'vegan'
+        fill_in 'box', :with => 'vegan'
       end
-      expect{click_button 'Search'}.to change{page}
+      expect{click_button 'Search'}.to change{current_path}
     end
 
   end

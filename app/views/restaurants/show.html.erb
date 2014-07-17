@@ -1,7 +1,13 @@
-  <b><p><%= @restaurant.name %></p></b>
+  <b><p><%= @restaurant.name %></b> <% if @restaurant.creator_id == session[:user_id] %> <%= link_to "Edit", edit_restaurant_path(@restaurant) %></p>
+  <% end %>
+
+
   <p>Upvotes: <%= @restaurant.votes.count  %><p>
   <p><%= @restaurant.street_address%></p>
   <p><%= @restaurant.city %>, <%=@restaurant.state%></p><br>
+
+
+
 
 <div id='review_box'>
   <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>

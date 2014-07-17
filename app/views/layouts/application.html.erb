@@ -15,10 +15,9 @@
   <%= link_to "Profile", user_path(session[:user_id]) %>
   <%= link_to "Logout", logout_path %>
 <% end %>
-<%= form_tag("/search", method: "get") do %>
+<%= form_tag("/search", method: "get", class: "search") do %>
   <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag :search, params[:search], :placeholder => "Bernie's Bistro, Sushi, BBQ..."
-  %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Bernie's Bistro, Sushi, BBQ...", id: "box" %>
   <%= submit_tag("Search") %>
 <% end %>
 <%= yield %>

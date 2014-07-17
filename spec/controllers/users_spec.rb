@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
     it "should successfully load the new user page" do
-      get :index
+      visit '/restaurants'
       expect(response.status).to eq 200
     end
 
