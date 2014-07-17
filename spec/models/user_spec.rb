@@ -9,11 +9,11 @@ describe User do
   end
 
   context "associations" do
-    it { should have_many :reviews}
-    it { should have_many :points}
-    it { should have_many :comments}
-    it { should have_many :restaurants }
-    it { should have_many :votes_cast }
+    it { should have_many(:reviews).with_foreign_key("reviewer_id") }
+    it { should have_many(:points).through(:reviews).source(:votes) }
+    it { should have_many(:comments).with_foreign_key("commenter_id") }
+    it { should have_many(:restaurants).with_foreign_key("creator_id") }
+    it { should have_many(:votes_cast).class_name("Vote").with_foreign_key("voter_id") }
   end
 
   context "creating a new user" do
@@ -32,4 +32,19 @@ describe User do
       expect(user.valid?).to be(false)
     end
   end
+
+  let(:user) { User.create(:username => "hans", email: "han@solo.com", password: "hi") }
+
+  it "should have a username" do
+    expect(user.username).to eq("hans")
+  end
+
+  it "should have an email" do
+    expect(user.email).to eq("han@solo.com")
+  end
+
+  it "should have a password" do
+    expect(user.password).to be_a String
+  end
+
 end
