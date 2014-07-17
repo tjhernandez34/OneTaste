@@ -15,4 +15,21 @@ describe User do
     it { should have_many :restaurants }
     it { should have_many :votes_cast }
   end
+
+  context "creating a new user" do
+    it "should fail if password is not long enough" do
+      user = User.create(:username => "hans", email: "han@solo.com", password: "hi")
+      expect(user.valid?).to be(false)
+    end
+
+    it "should fail if username is not present" do
+      user = User.create(email: "han@solo.com", password: "password")
+      expect(user.valid?).to be(false)
+    end
+
+    it "should fail if email is not present" do
+      user = User.create(username: "hans", password: "password")
+      expect(user.valid?).to be(false)
+    end
+  end
 end
