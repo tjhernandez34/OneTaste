@@ -6,7 +6,7 @@ rvm:
   - "1.9.3"
 
 before_script:
-  "be rake db:drop"
-  "be rake db:create"
-  "be rake db:migrate"
+  - "be rake db:drop"
+  - "be rake db:create"
+  - "be rake db:migrate"
 
