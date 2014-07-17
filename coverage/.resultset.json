@@ -1,40 +1,35 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/onetaste/app/models/comment.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
+      "/Users/apprentice/onetaste/app/controllers/users_controller.rb": [
         1,
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
         null
       ],
-      "/Users/apprentice/onetaste/app/models/restaurant.rb": [
-        1,
-        1,
-        1,
+      "/Users/apprentice/onetaste/app/controllers/application_controller.rb": [
         1,
         null,
-        1,
-        6,
         null,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/apprentice/onetaste/app/models/review.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
         1,
         null
       ],
@@ -53,7 +48,7 @@
         1,
         null
       ],
-      "/Users/apprentice/onetaste/app/models/vote.rb": [
+      "/Users/apprentice/onetaste/app/models/review.rb": [
         1,
         1,
         1,
@@ -61,9 +56,10 @@
         1,
         null,
         1,
+        1,
         null
       ]
     },
-    "timestamp": 1405637483
+    "timestamp": 1405640006
   }
 }
