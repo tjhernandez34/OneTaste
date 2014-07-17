@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  root :to => 'users#index'
+  root :to => 'restaurants#index'
+
+  get '/login' => 'sessions#new'
+
+  post '/login' => 'sessions#create'
+
+  get '/logout' => 'sessions#destroy'
+
+
   resources :users
+  resources :restaurants
+
 
 
   get '/search' => 'restaurants#search'

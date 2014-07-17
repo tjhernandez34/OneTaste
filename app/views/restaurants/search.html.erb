@@ -1,0 +1,8 @@
+<h1>Search Results</h1>
+
+<% @results.each do |restaurant| %>
+  <p><b><%= restaurant.category%></b></p>
+  <p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
+  <p><%= restaurant.street_address%></p>
+  <p><%= restaurant.city %>, <%=restaurant.state%></p><br>
+  <% end %>

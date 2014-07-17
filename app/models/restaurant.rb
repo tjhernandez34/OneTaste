@@ -4,7 +4,7 @@ class Restaurant < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
 
   def self.search(search)
-    where('name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%")
+    @restaurants = where('name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%")
   end
 
 end
