@@ -19,23 +19,20 @@ feature "user browsing the website" do
   end
 
   context "on login page" do
-    let(:user) { User.create(username: "Dummy123", email: "user@example.com", password: 'password') }
+    let(:user) { User.create!(username: "Dummy123", email: "user@example.com", password: 'password') }
 
     it "can log in" do
       visit '/login'
       within(".login") do
-        fill_in 'Email', :with => 'user@example.com'
-        fill_in 'Password', :with => 'password'
+        fill_in 'Email', :with => user.email
+        fill_in 'Password', :with => user.password
       end
-      click_button 'Login!'
-      expect(current_path).to eq(user_path(user))
+      expect{click_button 'Login!'}.to change{current_path}
     end
 
   end
 
   context "on signup page" do
-    let(:user) { User.create(username: "Dummy123", email: "user@example.com", password: 'password') }
-
     it "can sign up" do
       visit '/users/new'
       within(".signup") do
@@ -43,8 +40,7 @@ feature "user browsing the website" do
         fill_in 'email', :with => 'user@example.com'
         fill_in 'password', :with => 'password'
       end
-      click_button 'Sign Up!'
-      expect(current_path).to eq(user_path(user))
+      expect{click_button 'Sign Up!'}.to change{current_path}
     end
 
   end
@@ -55,7 +51,7 @@ feature "user browsing the website" do
 
     it "can see the restaurants they've reviewed" do
       visit user_path(user)
-      expect(page).to have_content 'Best meat-free options in town'
+      expect(page).to have_content "User Reviews"
     end
 
     it "can search restaurants and categories of food" do
