@@ -1,6 +1,9 @@
-<% @restaurants.each do |restaurant| %>
+<% @restaurants = @restaurants.sort_by {|restaurant| restaurant.votes.count} %>
+<% @restaurants.reverse.each do |restaurant| %>
   <p><b><%= restaurant.category%></b></p>
   <p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
   <p><%= restaurant.street_address%></p>
-  <p><%= restaurant.city %>, <%=restaurant.state%></p><br>
+  <p><%= restaurant.city %>, <%=restaurant.state%></p>
+  <p><%= restaurant.votes.count %></p>
+  <br>
   <% end %>
