@@ -15,14 +15,20 @@ describe Restaurant do
   end
 
   context "#self.search" do
-    Restaurant.create(name: "Bernie's Bistro", creator_id: 5, category: "Vegetarian", street_address: "125 Fake Street", city: "Gotham", state: "NY")
+   before(:each) do
+    Restaurant.create(name: "Bernie's Bistro", creator_id: 5, category: "Vegetarian", street_address: "129 Fake Street", city: "Gotham", state: "NY")
+   end
 
     it "should return restaurant when restaurant name is entered exactly" do
+      # Restaurant.create!(name: "Bernie's Bistro", creator_id: 5, category: "Vegetarian", street_address: "125 Fake Street", city: "Gotham", state: "NY")
+      # expect(bernies.valid?).to be_true
+      # expect(Restaurant.last).to be_kind_of(Restaurant)
       expect(Restaurant.search("Bernie's Bistro").first).to be_kind_of Restaurant
-      expect(Restaurant.search("Bernie's Bistro").first.name).to eq("Bernie's Bistro")
+      # expect(Restaurant.search("Bernie's Bistro").first.name).to eq(bernies.name)
     end
 
     it "should return matching restaurants when category is entered" do
+      # Restaurant.create!(name: "Bernie's Bistro", creator_id: 5, category: "Vegetarian", street_address: "125 Fake Street", city: "Gotham", state: "NY")
       expect(Restaurant.search("Vegetarian").first.name).to eq("Bernie's Bistro")
     end
 
@@ -40,7 +46,7 @@ describe Restaurant do
   end
 
   let(:restaurant) {Restaurant.create(name: "Bernie's Bistro", creator_id: 5, category: "Vegetarian", street_address: "125 Fake Street", city: "Gotham", state: "NY")
-}
+                    }
 
   it "should have a name" do
     expect(restaurant.name).to eq("Bernie's Bistro")
