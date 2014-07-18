@@ -5,6 +5,8 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'shoulda/matchers'
 require 'coveralls'
+require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
 Coveralls.wear!('rails')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -42,4 +44,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.before(:suite) do
+    DatabaseCleaner.clean
+  end
 end
