@@ -1,20 +1,28 @@
 $(document).ready(function(){
   $(".vote").on('click', function(event){
     event.preventDefault();
-
-    console.log($(this).attr("alt"));
+    that = $(this).parent();
+    console.log($(this).data('url'));
+    data = ($(this).data("type"));
+    id = ($(this).data("id"))
+    user_id = ($(this).data("user"))
     $.ajax({
-      url:$('this').data('url'),
+      url:$(this).data('url'),
       type: "Post",
+      data: {vote: {voteable_type: data, voteable_id: id, voter_id: user_id}},
+       dataType: "json",
       success: function(response){
-
-
-
+        $('#' + id).text(response);
+        console.log(response)
       }
+ });
+})
+})
 
 
-    });
-  });
+
+
+//   });
 
 
 

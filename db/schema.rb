@@ -55,9 +55,8 @@ ActiveRecord::Schema.define(version: 20140716195154) do
 
   create_table "votes", force: true do |t|
     t.integer  "voter_id"
-    t.integer  "restaurant_id"
-    t.integer  "comment_id"
-    t.integer  "review_id"
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -21,15 +21,15 @@ end
 end
 
 100.times do
-  Vote.create(voter_id: test.sample, review_id: test.sample)
+  Vote.create(voter_id: test.sample, voteable_id: test.sample, voteable_type: "Review")
 end
 
 10.times do
-  Vote.create(voter_id: test.sample, restaurant_id: [1,2].sample)
+  Vote.create(voter_id: test.sample, voteable_id: [1,2].sample, voteable_type: "Restaurant")
 end
 
 10.times do
-  Vote.create(voter_id: test.sample, comment_id: (1..17).to_a.sample)
+  Vote.create(voter_id: test.sample, voteable_id: (1..17).to_a.sample, voteable_type: "Comment")
 end
 
 
