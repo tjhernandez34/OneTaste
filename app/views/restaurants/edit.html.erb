@@ -1,0 +1,10 @@
+<% food_array = ["Asian", "Chinese", "Italian", "Seafood", "Mexican", "Japanese", "Sushi", "Thai", "Indian", "Steak", "American", "Pizza", "Vegetarian", "Cajun", "Pub Food", "French", "Middle Eastern", "Greek", "Mediterranean", "Spanish", "Korean", "Moroccan", "BBQ", "Soul", "Sandwiches"] %>
+
+<%= form_for @restaurant do |f| %>
+<p><%= f.text_field :name %></p>
+<p><%= f.text_field :street_address %></p>
+<p><%= f.text_field :city %></p>
+<p><%= f.text_field :state %></p>
+<p><%= select("restaurant", "category", food_array.sort )%></p>
+<p><%= f.submit "Update" %></p>
+<% end %>
