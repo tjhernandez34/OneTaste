@@ -13,7 +13,7 @@ $(document).ready(function(){
        dataType: "json",
       success: function(response){
         $('#' + id).text(response);
-        console.log(response)
+        console.log(response);
       }
  });
 })
