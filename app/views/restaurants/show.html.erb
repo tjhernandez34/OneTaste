@@ -21,17 +21,19 @@
 <% end %>
 
 
-<div id='review_box'>
+
   <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
   <% reviews.reverse.each do |review|%>
+  <div id='review'>
   <p><%= review.title %></p>
-  <p><b>Upvotes:  <%= review.votes.count %></b>
+  <p>Upvotes:  <b id='<%=review.id%>'><%= review.votes.count %></b>
     <%= link_to review_votes_path(review), method: :post   do %>
-      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type ="<%= review.class%>"/>
+      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= review.id %>" data-user="<%= session[:user_id] %>"/>
     <% end %>
   </p>
   <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
   <p><%= review.content%></p>
+  </div>
   <br>
   <% end %>
-</div>
+
