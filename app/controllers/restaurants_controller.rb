@@ -29,10 +29,12 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @image = Image.new
+    @images = Image.where('restaurant_id = ?', "#{@restaurant.id}")
   end
 
 
-private
+  private
   def restaurant_params
     params.require(:restaurant).permit(:name, :creator_id, :street_address, :city, :state, :category)
   end

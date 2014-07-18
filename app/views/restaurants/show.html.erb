@@ -6,9 +6,21 @@
       <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= @restaurant.id %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
   <p><%= @restaurant.street_address%></p>
-  <p><%= @restaurant.city %>, <%=@restaurant.state%></p><br>
+  <p><%= @restaurant.city %>, <%=@restaurant.state%></p>
+  <% @images.each do |image| %>
+  <%= image_tag image.image.url, :class => "image" %>
+  <% end %>
 
 
+<h3>Add an image for this restaurant:</h3>
+<%= form_for([@restaurant, @image]) do |f| %>
+
+  <p><%= f.text_field :caption, :placeholder => "Caption" %></p>
+  <%= f.file_field :image, :placeholder => "Upload an image", id: "image" %>
+  <%= f.hidden_field :owner_id, value: session[:user_id] %>
+  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+<p><%= f.submit "Create" %></p>
+<% end %>
 
 
 

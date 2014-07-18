@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews
+  has_many :images
   has_many :votes, as: :voteable
   belongs_to :creator, class_name: "User"
 

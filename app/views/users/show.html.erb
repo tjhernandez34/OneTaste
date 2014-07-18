@@ -1,5 +1,6 @@
 <% if session[:user_id] == @user.id %>
 <h1>Welcome <%= @user.username %></h1>
+<%=image_tag @user.avatar.url, :class => "avatar"  %>
 
 <%= link_to "Create Restaurant", new_restaurant_path %>
 <h2>User Restaurants</h2>
