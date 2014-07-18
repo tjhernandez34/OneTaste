@@ -1,3 +1,23 @@
+$(document).ready(function(){
+  $(".vote").on('click', function(event){
+    event.preventDefault();
+
+    console.log($(this).attr("alt"));
+    $.ajax({
+      url:$('this').data('url'),
+      type: "Post",
+      success: function(response){
+
+
+
+      }
+
+
+    });
+  });
+
+
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

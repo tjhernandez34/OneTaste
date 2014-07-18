@@ -9,10 +9,13 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :restaurants do
+    resources :votes, :only => :create
+  end
 
-  resources :restaurants
-
-
+  resources :reviews do
+    resources :votes, :only => :create
+  end
 
   get '/search' => 'restaurants#search'
   # The priority is based upon order of creation: first created -> highest priority.
