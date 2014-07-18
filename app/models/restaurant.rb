@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews
   has_many :votes
+  has_many :images
   belongs_to :creator, class_name: "User"
 
   def self.search(search)

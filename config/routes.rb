@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :votes, :only => :create
+    resources :images, :only => :create
   end
 
   resources :reviews do
