@@ -1,5 +1,5 @@
 <nav>
-  <%= link_to(image_tag('logo.jpg'), root_path )%>
+  <%= link_to(image_tag('logo.svg', size: "20x20"), root_path )%>
   <ul>
     <% if session[:user_id] %>
     <li><%= link_to "logout", logout_path %></li>
