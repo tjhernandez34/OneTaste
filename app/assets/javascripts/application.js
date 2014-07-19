@@ -22,6 +22,16 @@ $(document).ready(function(){
       }
  });
 })
+
+  $(".pure-input-1-4").on('click', function(){
+    $("#slogan").fadeTo( "slow" , 0.2);
+
+  });
+
+
+
+  // $("#slogan").on('click', function(){
+  //   $("#slogan").css('opacity', '1');
 })
 
 
