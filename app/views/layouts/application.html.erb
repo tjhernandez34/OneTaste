@@ -8,19 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Home", root_path %>
-<% if session[:user_id] == nil %>
-  <%= link_to "Login", login_path %>
-  <%= link_to "Create Account", new_user_path %>
-<% else %>
-  <%= link_to "Profile", user_path(session[:user_id]) %>
-  <%= link_to "Logout", logout_path %>
-<% end %>
-<%= form_tag("/search", method: "get", class: "search") do %>
-  <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag :search, params[:search], :placeholder => "Bernie's Bistro, Sushi, BBQ...", id: "box" %>
-  <%= submit_tag("Search") %>
-<% end %>
+  <%= render "partials/nav" %>
+  <%= render "partials/restaurant_search" %>
 <%= yield %>
 
 </body>
