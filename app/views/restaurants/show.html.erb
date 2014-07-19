@@ -11,6 +11,15 @@
   <%= image_tag image.image.url, :class => "image" %>
   <% end %>
 
+<% if session[:user_id] %>
+  <%= form_for :review, url: review_create_path, method: 'post' do |f| %>
+    <p><%= f.text_field :title, :placeholder => "Title" %></p>
+    <p><%= f.text_area :content, :placeholder => "Review"  %></p>
+    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+    <%= f.hidden_field :reviewer_id, value: session[:user_id] %>
+    <p><%= f.submit "Publish" %></p>
+  <% end %>
+<% end %>
 
 <h3>Add an image for this restaurant:</h3>
 <%= form_for([@restaurant, @image]) do |f| %>
@@ -27,6 +36,10 @@
   <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
   <% reviews.reverse.each do |review|%>
   <div id='review'>
+    <% if session[:user_id] == review.reviewer_id %>
+    <%= link_to "edit", edit_review_path(review) %>
+    <%= button_to "delete", review_delete_path(review), method: :delete %>
+    <% end %>
   <p><%= review.title %></p>
   <p>Upvotes:  <b id='<%=review.id%>'><%= review.votes.count %></b>
     <%= link_to review_votes_path(review), method: :post   do %>
