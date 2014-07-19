@@ -41,9 +41,10 @@
     <%= button_to "delete", review_delete_path(review), method: :delete %>
     <% end %>
   <p><%= review.title %></p>
-  <p>Upvotes:  <b id='<%=review.id%>'><%= review.votes.count %></b>
+  <%= "review " + "#{review.id}"%>
+  <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
     <%= link_to review_votes_path(review), method: :post   do %>
-      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= review.id %>" data-user="<%= session[:user_id] %>"/>
+      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %>
   </p>
   <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>

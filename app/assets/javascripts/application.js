@@ -4,15 +4,20 @@ $(document).ready(function(){
     that = $(this).parent();
     console.log($(this).data('url'));
     data = ($(this).data("type"));
-    id = ($(this).data("id"))
+    id = ($(this).data("id")).split(" ")[1]
+    console.log(id)
+    label = ($(this).data("id")).split(" ")[0]
+    console.log(label)
     user_id = ($(this).data("user"))
+    console.log(user_id)
     $.ajax({
       url:$(this).data('url'),
       type: "Post",
       data: {vote: {voteable_type: data, voteable_id: id, voter_id: user_id}},
        dataType: "json",
       success: function(response){
-        $('#' + id).text(response);
+        $("#" + label + "_" + id).text(response);
+        console.log("#" + label + "_" + id)
         console.log(response);
       }
  });

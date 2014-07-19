@@ -8,7 +8,7 @@ class VotesController < ApplicationController
       else
         Vote.create(vote_params)
       end
-    new_number = Vote.where('voteable_id = ? AND voteable_type = ?', params[:vote][:voteable_id], params[:vote][:voteable_type]).count
+    new_number = Vote.where('voteable_id = ? AND voteable_type = ?', params[:vote][:voteable_id], params[:vote][:voteable_type]).count.to_s
 
      render json: new_number
   end

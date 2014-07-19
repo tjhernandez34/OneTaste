@@ -5,6 +5,6 @@ class Vote < ActiveRecord::Base
   validates_presence_of :voter_id
   validates_presence_of :voteable_id
   validates_presence_of :voteable_type
-  validates :voteable_type, inclusion: { in: %w(comment review restaurant) }
+  validates :voteable_type, inclusion: { in: %w(Comment Review Restaurant) }
 end
 
