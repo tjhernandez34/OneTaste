@@ -14,7 +14,7 @@ $(document).ready(function(){
       url:$(this).data('url'),
       type: "Post",
       data: {vote: {voteable_type: data, voteable_id: id, voter_id: user_id}},
-       dataType: "json",
+      dataType: "json",
       success: function(response){
         $("#" + label + "_" + id).text(response);
         console.log("#" + label + "_" + id)
