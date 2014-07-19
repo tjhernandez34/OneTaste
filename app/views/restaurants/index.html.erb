@@ -1,3 +1,13 @@
+<div id = "slogan"><h1>Take your first bite</h1>
+<div id = "home_search">
+  <%= form_tag("/search", method: "get", class: "pure-form") do %>
+  <%= label_tag(:q, "Find a restaurant:", id: "search_tag") %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Bernie's Bistro, Sushi, BBQ...", id: "box", class: "pure-input-1-4" %>
+  <%= submit_tag("Search") %>
+<% end %>
+</div>
+</div>
+
 <% @restaurants = @restaurants.sort_by {|restaurant| restaurant.votes.count} %>
 <% @restaurants.reverse.each do |restaurant| %>
   <p><b><%= restaurant.category%></b></p>
@@ -5,8 +15,8 @@
   <p><%= restaurant.street_address%></p>
   <p><%= restaurant.city %>, <%=restaurant.state%></p>
 
-  <p>Upvotes: <div id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %></div>     <%= link_to restaurant_votes_path(restaurant), method: :post   do %>
+  <p>Upvotes: <b id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %></b>     <%= link_to restaurant_votes_path(restaurant), method: :post   do %>
       <img class ='vote' src="/ArrowUp.png" data-url="<%= restaurant_votes_path(restaurant) %>" data-type="<%= restaurant.class %>" data-id="<%= 'restaurant ' + "#{restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
   <br>
-  <% end %>
+<% end %>

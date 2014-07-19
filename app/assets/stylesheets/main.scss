@@ -99,3 +99,35 @@ li a {
 li a:hover {
   color: $orange;
 }
+
+#home_search {
+  padding-top: 100px;
+  text-align: center;
+}
+
+#slogan {
+  color: white;
+  text-align: center;
+  background-image: url('http://www.santafe.org/images/Links/6/446-9wine_OldHsPeopleDinner_6135.jpg');
+  background-size: cover;
+  background-position: top 700px center;
+  height: 600px;
+  padding-top: 100px;
+}
+
+#slogan::after {
+  content: "";
+  background: url('http://www.santafe.org/images/Links/6/446-9wine_OldHsPeopleDinner_6135.jpg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#search_tag{
+  font-size: 1.7em;
+  padding-right: 10px;
+}
