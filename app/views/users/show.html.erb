@@ -13,20 +13,22 @@
 <%else %>
 <h1><%= @user.username %></h1>
 <% end %>
-<h2>User Reviews</h2>
-<% @user.reviews.each do |review| %>
-  <p><b><%= review.restaurant.name %></b></p>
-  <p><%= review.title %></p>
-  <p><%= review.content %></p>
-  <p>Upvotes:  <%= review.votes.count %></p>
-<% end %>
-
-<h2><%= @user.username %>'s Friends</h2>
-<% @user.friendships.each do |friendship| %>
-  <p><%= friendship.friend.avatar %></p>
-  <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
-<% end %>
-
+<div class="user_reviews">
+  <h2>User Reviews</h2>
+  <% @user.reviews.each do |review| %>
+    <p><b><%= review.restaurant.name %></b></p>
+    <p><%= review.title %></p>
+    <p><%= review.content %></p>
+    <p>Upvotes:  <%= review.votes.count %></p>
+  <% end %>
+</div>
+<div class="friends">
+  <h2><%= @user.username %>'s Friends</h2>
+  <% @user.friendships.each do |friendship| %>
+    <p><%= friendship.friend.avatar %></p>
+    <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
+  <% end %>
+</div>
 
 
 

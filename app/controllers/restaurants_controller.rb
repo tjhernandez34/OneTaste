@@ -1,7 +1,10 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.all
+    restaurants = Restaurant.all
+    @restaurants = restaurants.sort_by{ |restaurant| restaurant.votes.count }.reverse.shift(5)
+    users = User.all
+    @users = users.sort_by{ |user| user.points.count }.reverse.shift(5)
   end
 
   def search
