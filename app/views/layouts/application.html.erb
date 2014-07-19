@@ -4,13 +4,16 @@
   <title>Onetaste</title>
   <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Lobster' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render "partials/nav" %>
+  <% unless current_page?(root_path) %>
   <%= render "partials/restaurant_search" %>
+  <% end %>
 <%= yield %>
 
 </body>
