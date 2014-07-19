@@ -33,6 +33,20 @@
     <% end %>
 <% end %>
 
+<div class="super_critics">
+  <h1>SUPER CRITICS</h1>
+  <% @restaurant.top_reviewers.each do |review| %>
+      <h3><%= review.title %></h3>
+      <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
+      <p>Review Points: <%= review.reviewer.points.count %></p>
+      <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
+        <%= link_to review_votes_path(review), method: :post   do %>
+          <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
+        <% end %></p>
+      <p><%= review.content%></p>
+  <% end %>
+  <br>
+</div>
 
 <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
 <% reviews.reverse.each do |review|%>
