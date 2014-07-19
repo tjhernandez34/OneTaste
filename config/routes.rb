@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :votes, :only => :create
   end
 
+  post '/reviews' => 'reviews#create', as: 'review_create'
+
+  delete '/reviews/:id(.:format)' => 'reviews#destroy', as: 'review_delete'
+
   get '/search' => 'restaurants#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
