@@ -2,7 +2,9 @@
   <% end %>
 
 
-  <p>Upvotes: <%= @restaurant.votes.count  %><p>
+    <p>Upvotes: <b id='<%=@restaurant.id%>'><%= @restaurant.votes.count %></b>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
+      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= @restaurant.id %>" data-user="<%= session[:user_id] %>"/>
+    <% end %></p>
   <p><%= @restaurant.street_address%></p>
   <p><%= @restaurant.city %>, <%=@restaurant.state%></p>
   <% @images.each do |image| %>
