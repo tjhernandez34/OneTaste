@@ -1,0 +1,72 @@
+
+$blue: #00a2b2;
+$light-blue: #63f1ff;
+$orange: #FF7613;
+$white: #FFF6ef;
+$grey: #B29f91;
+$font-stack: Roboto, sans-serif;
+
+body, nav, .title {
+  font-family: 'Roboto';
+}
+
+a {
+  text-decoration: none;
+}
+
+.vote {
+  height: 1em;
+  width: auto;
+  cursor: pointer;
+}
+
+.logo {
+  display: block;
+  float:left;
+  margin: 0 auto;
+  position: relative;
+  width: 33%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.logo img {
+  width:50px;
+  margin: auto;
+  vertical-align: middle;
+  height: 90%;
+  top: 10%;
+  border: 1px solid pink;
+  padding-left: 20%;
+}
+
+nav {
+  height: 3em;
+  background-color: $blue;
+  /*box-shadow: 0 3px 1px .5px #666;*/
+}
+
+.title {
+  color: $white;
+  margin: 0 auto;
+  border: 1px solid red;
+  text-align: center;
+  width: 30%;
+  font-size: 3em;
+}
+
+nav ul {
+  width: 20%;
+  background-color: pink;
+}
+
+nav li {
+  display: inline-block;
+  /*float: right;*/
+  /*margin: 0 20px;*/
+  vertical-align: middle;
+}
+
+li a {
+  color: $white;
+}
