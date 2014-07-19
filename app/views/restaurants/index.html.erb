@@ -8,8 +8,8 @@
 </div>
 
 
-<% @restaurants = @restaurants.sort_by {|restaurant| restaurant.votes.count} %>
-<% @restaurants.reverse.each do |restaurant| %>
+<div id='front_restaurants'>
+<% @restaurants.each do |restaurant| %>
   <p><b><%= restaurant.category%></b></p>
   <p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
   <p><%= restaurant.street_address%></p>
@@ -20,3 +20,16 @@
     <% end %></p>
   <br>
 <% end %>
+</div>
+
+<div id='front_users'>
+<% @users.each do |user| %>
+<p><%= link_to "#{user.username}", user_path(user.id) %></p>
+  <% review = user.reviews.sample %>
+    <h3><%= review.title %></h3>
+    <p><%= review.restaurant.name %></p>
+    <p><%= review.restaurant.city %> <%= review.restaurant.state %></p>
+    <p><%= review.content %></p>
+  <br>
+<% end %>
+</div>
