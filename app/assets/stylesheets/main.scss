@@ -4,7 +4,7 @@ $light-blue: #63f1ff;
 $orange: #FF7613;
 $white: #FFF6ef;
 $grey: #B29f91;
-$font-stack: Roboto, sans-serif;
+
 
 .title {
   font-family: 'Lobster', cursive;
@@ -17,6 +17,28 @@ body, nav, form, input[placeholder], input[value], button[value] {
 
 a {
   text-decoration: none;
+}
+
+.vote, .restaurant_title {
+  display: inline-block;
+}
+
+body a {
+  color: $orange;
+}
+
+body {
+  text-align: center;
+}
+
+.search {
+  margin: 0 auto;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.search input[type="text"] {
+  width: 15%;
 }
 
 .vote {
@@ -32,7 +54,6 @@ a {
   position: relative;
   width: 24%;
   height: 100%;
-  // border: 1px solid red;
 }
 
 .logo img {
