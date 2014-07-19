@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :votes, :only => :create
   end
 
+  resources :friendships
+
   resources :comments do
     resources :votes, :only => :create
   end
