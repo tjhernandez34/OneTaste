@@ -1,15 +1,17 @@
-  <b><p><%= @restaurant.name %></b> <% if @restaurant.creator_id == session[:user_id] %> <%= link_to "Edit", edit_restaurant_path(@restaurant) %></p>
-  <% end %>
+<b><p><%= @restaurant.name %></b> <% if @restaurant.creator_id == session[:user_id] %> <%= link_to "Edit", edit_restaurant_path(@restaurant) %></p>
+<% end %>
 
 
-    <p>Upvotes: <div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count %></div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
-      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
+<p>Upvotes: <div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count %></div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
+  <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
-  <p><%= @restaurant.street_address%></p>
-  <p><%= @restaurant.city %>, <%=@restaurant.state%></p>
-  <% @images.each do |image| %>
+
+<p><%= @restaurant.street_address%></p>
+<p><%= @restaurant.city %>, <%=@restaurant.state%></p>
+
+<% @images.each do |image| %>
   <%= image_tag image.image.url, :class => "image" %>
-  <% end %>
+<% end %>
 
 <% if session[:user_id] %>
   <%= form_for :review, url: review_create_path, method: 'post' do |f| %>
@@ -20,70 +22,94 @@
     <p><%= f.submit "Publish" %></p>
   <% end %>
 
+  <h3>Add an image for this restaurant:</h3>
 
-<h3>Add an image for this restaurant:</h3>
-<%= form_for([@restaurant, @image]) do |f| %>
-
-  <p><%= f.text_field :caption, :placeholder => "Caption" %></p>
-  <%= f.file_field :image, :placeholder => "Upload an image", id: "image" %>
-  <%= f.hidden_field :owner_id, value: session[:user_id] %>
-  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
-<p><%= f.submit "Create" %></p>
+    <%= form_for([@restaurant, @image]) do |f| %>
+      <p><%= f.text_field :caption, :placeholder => "Caption" %></p>
+      <%= f.file_field :image, :placeholder => "Upload an image", id: "image" %>
+      <%= f.hidden_field :owner_id, value: session[:user_id] %>
+      <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+      <p><%= f.submit "Create" %></p>
+    <% end %>
 <% end %>
-<% end %>
 
+<div class="super_critics">
+  <h1>SUPER CRITICS</h1>
+  <% @restaurant.top_reviewers.each do |review| %>
+      <h3><%= review.title %></h3>
+      <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
+      <p>Review Points: <%= review.reviewer.points.count %></p>
+      <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
+        <%= link_to review_votes_path(review), method: :post   do %>
+          <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
+        <% end %></p>
+      <p><%= review.content%></p>
+  <% end %>
+  <br>
+</div>
 
-  <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
-  <% reviews.reverse.each do |review|%>
+<% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
+<% reviews.reverse.each do |review|%>
   <div id='review'>
-    <% if session[:user_id] == review.reviewer_id %>
+  <% if session[:user_id] == review.reviewer_id %>
     <%= link_to "edit", edit_review_path(review) %>
     <%= button_to "delete", review_delete_path(review), method: :delete %>
-    <% end %>
+  <% end %>
+
   <h3><%= review.title %></h3>
-  <%= "review " + "#{review.id}"%>
+
   <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
     <%= link_to review_votes_path(review), method: :post   do %>
       <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %>
   </p>
+
   <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
   <p><%= review.content%></p>
   <br>
-  <h4>Comments</h4>
-      <% if session[:user_id] %>
-        <%= form_for :comment, url: comment_create_path, method: 'post' do |f| %>
-          <p><%= f.text_area :content, :placeholder => "Comment"  %></p>
-          <%= f.hidden_field :review_id, value: review.id %>
-          <%= f.hidden_field :commenter_id, value: session[:user_id] %>
-          <p><%= f.submit "Publish" %></p>
-        <% end %>
-      <% end %>
 
+  <% if review.comments.length > 0 %>
+    <h4>Comments</h4>
+  <% end %>
 
+ <% if session[:user_id] %>
+    <%= form_for :comment, url: comment_create_path, method: 'post' do |f| %>
+      <p><%= f.text_area :content, :placeholder => "Comment"  %></p>
+      <%= f.hidden_field :review_id, value: review.id %>
+      <%= f.hidden_field :commenter_id, value: session[:user_id] %>
+      <p><%= f.submit "Publish" %></p>
+    <% end %>
+  <% end %>
 
   <div id="comment">
 
-    <% review.comments.each do |comment| %>
+  <% review.comments.each do |comment| %>
     <% if session[:user_id] == comment.commenter_id %>
-    <%= button_to "delete", comment_delete_path(comment), method: :delete %>
+      <%= button_to "delete", comment_delete_path(comment), method: :delete %>
     <% end %>
-      <%= link_to "#{comment.commenter.username}", user_path(comment.commenter.id) %>
-      <%= comment.content %>
-          <p>Upvotes:  <div id="<%= "comment_" + "#{comment.id}"%>"><%= comment.votes.count %></div>
+
+    <%= link_to "#{comment.commenter.username}", user_path(comment.commenter.id) %>
+    <%= comment.content %>
+    <p>Upvotes:  <div id="<%= "comment_" + "#{comment.id}"%>"><%= comment.votes.count %></div>
+
     <%= link_to comment_votes_path(comment), method: :post   do %>
       <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= comment_votes_path(comment) %>" data-type="<%= comment.class %>" data-id="<%= 'comment ' + "#{comment.id}" %>" data-user="<%= session[:user_id] %>"/>
-  </p>
+      </p>
+    <% end %>
 
   <br>
-          <% end %>
+    <% if comment.replies != nil %>
+      <h4>Comment Replies</h4>
+    <% end %>
 
+    <% comment.replies.each do |reply| %>
+      <%= reply.commenter %>
+      <%= reply.content %>
+    <% end %>
 
-
-
-           <% end %>
-          </div>
-  </div>
-  <br>
   <% end %>
+  </div>
+</div>
+<br>
+<% end %>
 

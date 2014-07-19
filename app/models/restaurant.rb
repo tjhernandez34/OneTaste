@@ -9,6 +9,10 @@ class Restaurant < ActiveRecord::Base
     @restaurants = where('name LIKE ? OR category LIKE ? OR city LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
+  def top_reviewers
+    self.reviews.sort_by{ |review| review.reviewer.points.count }.reverse.shift(2)
+  end
+
   validates_uniqueness_of :street_address
   validates_presence_of :name, :state, :city
 end
