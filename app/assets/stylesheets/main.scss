@@ -144,3 +144,21 @@ li a:hover {
   padding-right: 10px;
   color: $white;
 }
+
+h2 a{
+  color: $orange;
+}
+.restaurant_title {
+  display: inline-block;
+}
+.votes {
+  display: inline-block;
+  // float: right;
+  // margin-right: 25%;
+}
+
+.restaurants_splash {
+  // text-align: center;
+  margin: 20px;
+  width: 50%;
+}
