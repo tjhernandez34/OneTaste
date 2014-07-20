@@ -7,8 +7,11 @@
 <% end %>
 </div>
 
-<div class = "restaurants_splash">
-  <h1 class = "subheading"> Try a new main course... </h1>
+
+<div class='restaurants_splash'>
+
+<h1 class = "subheading"> Try a new main course... </h1>
+
 <% @restaurants.each do |restaurant| %>
   <h2 class = "restaurant_title"><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h2>
   <div class = "votes">
