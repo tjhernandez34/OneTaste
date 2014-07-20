@@ -1,15 +1,23 @@
 
 <b><p id="restaurant_name"><%= @restaurant.name %></b> <% if @restaurant.creator_id == session[:user_id] %> <%= link_to "Edit", edit_restaurant_path(@restaurant) %></p>
 <% end %>
-<div id="carousel">
-  <% view_image = @images.first %>
-  <%= image_tag view_image.image.url, :class => "restaurant_image_visible", :id => "restimage0" %>
-  <% hide_image = @images[1..@images.length] %>
-  <% hide_image.each_with_index do |image, index| %>
-  <%= image_tag image.image.url, :class => "restaurant_image_hidden", :id => "restimage#{index + 1}" %>
-<% end %>
 
-</div>
+
+  <div id="carousel">
+    <% if @images != nil %>
+   <%= hidden_field_tag("images_length", @images.length , {:id => "images_length"})%>
+      <% view_image = @images.first %>
+      <% if view_image != nil %>
+        <%= image_tag view_image.image.url, :class => "restaurant_image_visible", :id => "restimage0" %>
+      <% end %>
+      <% hide_image = @images[1..@images.length] %>
+      <% if hide_image != nil %>
+        <% hide_image.each_with_index do |image, index| %>
+        <%= image_tag image.image.url, :class => "restaurant_image_hidden", :id => "restimage#{index + 1}" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
 
 
