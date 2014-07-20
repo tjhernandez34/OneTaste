@@ -1,3 +1,17 @@
+var currentImage=1;
+  function showImage() {
+      console.log("in loop")
+      last = "#restimage" + (currentImage - 1);
+      string = "#restimage" + currentImage;
+      console.log(last)
+      console.log(string)
+      $(last).removeClass('restaurant_image_visible');
+      $(last).addClass('restaurant_image_hidden');
+      $(string).removeClass('restaurant_image_hidden');
+      $(string).addClass('restaurant_image_visible');
+   };
+
+
 $(document).ready(function(){
   $(".vote").on('click', function(event){
     event.preventDefault();
@@ -24,37 +38,47 @@ $(document).ready(function(){
   })
 
   $(".pure-input-1-4").on('click', function(){
-    $("#slogan").fadeTo( "slow" , 0.2);
+    $("#slogan").fadeTo( "slow" , 0.4);
+    $('#search_tag').hide();
+    $("#box").attr('class', 'pure-input-1-2');
 
   });
 
-  $(window).bind('mousewheel', function(event) {
-    if (event.originalEvent.wheelDelta >= 0) {
-        console.log('Scroll up');
-    }
-    else {
-        console.log('Scroll down');
-    }
-});
+  $("#slogan").on('click', function(){
+    $("#slogan").fadeTo( "slow" , 1);
+    $("#box").attr('class', 'pure-input-1-4');
 
-
+  });
 
   $(document).scroll(function(){
-    $(".restaurants_splash").show();
-    $("#users_splash").show();
-    $("#slogan").css('height', '600px')
+    if($(document).scrollTop() > 30){
+      $(".restaurants_splash").show();
+      $("#users_splash").show();
+      $("#slogan").css('height', '550px');}
     if($(document).scrollTop() == 0){
-    $("#slogan").css('height', '900px');
-  };
+      $("#slogan").css('height', '900px');
+      $(".restaurants_splash").hide();
+      $("#users_splash").hide();
+    };
   });
 
   $(".restaurants_splash").on('click', function(){
     $("#slogan").css('opacity', '1');
+    $("#box").attr('class', 'pure-input-1-4');
   });
 
   $("#users_splash").on('click', function(){
     $("#slogan").css('opacity', '1');
+    $("#box").attr('class', 'pure-input-1-4');
   });
+
+setInterval( function(){showImage()
+  currentImage++;
+    if ($(("#restimage" + currentImage)).attr('src') === undefined) {
+      $(string).addClass('restaurant_image_visible');
+      currentImage = 0;
+    }
+}, 5000);
 
 })
 
