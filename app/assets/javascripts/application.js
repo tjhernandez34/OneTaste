@@ -19,6 +19,33 @@ function showImage() {
 
 
 $(document).ready(function() {
+    //---------------Modals JS------------
+    $('.login').on('click', function(event) {
+        event.preventDefault();
+        $('.login-form').fadeToggle(400);
+        return false;
+    });
+
+    $('html').on('click', function(event) {
+        event.preventDefault();
+        if ($('.login-form').is(":visible")) {
+            $('.login-form').fadeToggle(400);
+        };
+    });
+
+    $('.signup').on('click', function(event) {
+        event.preventDefault();
+        $('.signup-form').fadeToggle(400);
+        return false;
+    });
+
+    $('html').on('click', function(event) {
+        event.preventDefault();
+        if ($('.signup-form').is(":visible")) {
+            $('.signup-form').fadeToggle(400);
+        };
+    })
+    //---------------some other stuff--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
         that = $(this).parent();
@@ -104,16 +131,6 @@ $(document).ready(function() {
 
 })
 
-//---------------Modals JS------------
-$('.login').on('click', function(event) {
-    event.preventDefault();
-    $('.login-form').fadeToggle(400);
-});
-
-$('.signup').on('click', function(event) {
-    event.preventDefault();
-    $('.signup-form-modal').fadeToggle(400);
-});
 
 
 // });

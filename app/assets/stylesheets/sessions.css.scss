@@ -9,9 +9,7 @@ $white: #FFF6ef;
 $grey: #B29f91;
 
 
-.hidden {
-	display: none;
-}
+
 
 .modal {	
 	display: none;
@@ -32,12 +30,13 @@ $grey: #B29f91;
 }
 
 .modal form {
+	text-align: center;
 	position: relative;
 	/*top: 30%;*/
 	/*left: 40%;*/
 	margin: 100px auto;
 	width: 315px;
-	/*border: 1px solid red;*/
+	height: 100%;
 }
 
 .form-field {
