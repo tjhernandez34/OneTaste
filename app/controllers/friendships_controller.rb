@@ -1,5 +1,11 @@
 class FriendshipsController < ApplicationController
 
+  def index
+    params
+    @user = User.find(params[:user_id])
+    @friendships = @user.friendships
+  end
+
   def create
     Friendship.create(friendship_params)
     redirect_to user_path(params[:friendships][:friend_id])

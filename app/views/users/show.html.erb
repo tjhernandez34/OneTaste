@@ -37,7 +37,9 @@
 </div>
 <div class="friends">
   <h2><%= @user.username %>'s Friends</h2>
-  <% @user.friendships.each do |friendship| %>
+  <%= link_to "View All Friends", friendships_path(user_id: @user.id) %>
+  <% friendships = @user.friendships[0..2] %>
+  <% friendships.each do |friendship| %>
     <p><%= friendship.friend.avatar %></p>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
     <% if @user.id == session[:user_id] %>
