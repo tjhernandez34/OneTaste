@@ -27,10 +27,6 @@ $(document).ready(function() {
     });
 
 
-$("#box").val('');
-
-})
-
     $(document).on('click', function(event) {
         if (!$(event.target).closest('.modal > form').length) {
             if ($('.login-form').is(":visible")) {
@@ -143,11 +139,13 @@ $("#box").val('');
         };
     }, 5000);
 
-})
+    // if(window.location.pathname != '/'){
+
+    // }
 
 
-
-// });
+    $("#box").val('');
+});
 
 
 

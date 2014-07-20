@@ -87,7 +87,7 @@ h1 {
 
 }
 
-.title {
+.title_home {
   display: inline-block;
   position: relative;
   top: 20%;
@@ -96,6 +96,19 @@ h1 {
   text-align: center;
   width: 50%;
   padding-top: 3px;
+  left: 20%;
+}
+
+.title_elsewhere {
+  display: inline-block;
+  position: relative;
+  top: 20%;
+  margin: 0 auto;
+  border: 1px solid blue;
+  text-align: center;
+  width: 50%;
+  padding-top: 3px;
+  left: 20%;
 }
 
 nav ul {
