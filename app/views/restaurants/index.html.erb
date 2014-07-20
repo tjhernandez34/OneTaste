@@ -30,7 +30,7 @@
 <% @users.each do |user| %>
 <img id = "reviewer_photo" src = 'seed_photos/<%= rand(6).to_s + ".png" %>' width = "70px" />
   <% review = user.reviews.sample %>
-    <h3 id = "review_title"><%= link_to review.title, review_path(review)%></h3>
+    <h3 id = "title_review"><%= link_to review.title, review_path(review)%></h3>
     <h4 id = "author"> By <%= link_to "#{user.username}", user_path(user.id) %> </h4>
     <h4 id = "subtitle"><%= review.restaurant.name %></h4>
     <h4 id = "city"><%= review.restaurant.city %>, <%= review.restaurant.state %></h4>
