@@ -93,6 +93,9 @@ setInterval( function(){showImage()
   };
 }, 5000);
 
+
+$("#box").val('');
+
 })
 
 

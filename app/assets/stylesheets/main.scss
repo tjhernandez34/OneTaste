@@ -31,8 +31,20 @@ a {
   float:left;
   margin: 0 auto;
   position: relative;
-  width: 24%;
+  width: 5%;
   height: 100%;
+  // border: 1px solid red;
+}
+
+
+#header_search {
+  display: block;
+  float:left;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  vertical-align: middle;
+  padding-top: 8.5px;
   // border: 1px solid red;
 }
 
@@ -135,6 +147,13 @@ li a:hover {
   width:100px;
 
 }
+
+#banner_search{
+  border: solid;
+  border-width: 1.5px;
+  border-color: $light-blue;
+}
+
 
 .pure-input-1-4{
   margin-right: 10px;
@@ -246,4 +265,20 @@ padding-right: 6px;
 #city{
   letter-spacing: .08em;
 }
+#results_body{
+  background: url(http://3.bp.blogspot.com/-w5_5ULWKFno/UcIzvZ8Kt8I/AAAAAAAAKis/3-ykibquoMA/s1600/DSC_0154.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 900px;
+}
+
+.results_splash{
+  text-align: center;
+  width: 100%;
+  background-color: rgba(178,159,145,.7);
+  height: 900px;
+}
+
 

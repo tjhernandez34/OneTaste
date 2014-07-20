@@ -11,9 +11,6 @@
 </head>
 <body>
   <%= render "partials/nav" %>
-  <% unless current_page?(root_path) %>
-  <%= render "partials/restaurant_search" %>
-  <% end %>
 <%= yield %>
 
 </body>
