@@ -99,18 +99,6 @@ h1 {
   left: 20%;
 }
 
-.title_elsewhere {
-  display: inline-block;
-  position: relative;
-  top: 20%;
-  margin: 0 auto;
-  border: 1px solid blue;
-  text-align: center;
-  width: 50%;
-  padding-top: 3px;
-  left: 20%;
-}
-
 nav ul {
   width: 24%;
   float:right;
@@ -177,16 +165,6 @@ a {
   position: relative;
 }
 
-#slogan::after {
-  content: "";
-  background: url('http://www.santafe.org/images/Links/6/446-9wine_OldHsPeopleDinner_6135.jpg');
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
 .pure-button{
   background-color: $blue;
   color: $white;
@@ -210,6 +188,7 @@ input[type=submit] {
 .pure-input-1-4{
   margin-right: 10px;
 }
+
 #search_tag{
   font-size: 1.7em;
   padding-right: 10px;
@@ -221,9 +200,11 @@ h2 a{
   text-shadow: .4px .4px .4px black;
 
 }
+
 .restaurant_title {
   display: inline-block;
 }
+
 .votes {
   display: inline-block;
   // float: right;
@@ -309,9 +290,6 @@ padding-right: 6px;
   color: $light-blue;
 }
 
-
-
-
 #author {
   padding-top: 3px;
   letter-spacing: .08em;
@@ -320,6 +298,7 @@ padding-right: 6px;
 #city{
   letter-spacing: .08em;
 }
+
 #results_body{
   background: url(http://3.bp.blogspot.com/-w5_5ULWKFno/UcIzvZ8Kt8I/AAAAAAAAKis/3-ykibquoMA/s1600/DSC_0154.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -335,5 +314,3 @@ padding-right: 6px;
   background-color: rgba(178,159,145,.7);
   height: 900px;
 }
-
-

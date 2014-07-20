@@ -1,3 +1,28 @@
+<div id = "home">
+
+<nav>
+  <div class= "logo">
+    <%= link_to(image_tag('logo.svg', size: "20x20"), root_path )%>
+  </div>
+  <span id = "header_search" class = "pure-form">
+    <% unless current_page?(root_path) %>
+    <%= render "partials/restaurant_search" %>
+    <% end %>
+  </span>
+  <div id = "title" class = "title">
+    <a href = '/'><h1>OneTaste</h1></a>
+  </div>
+  <ul class = "links">
+    <% if session[:user_id] %>
+    <li><%= link_to "logout", logout_path %></li>
+    <li><%= link_to "profile", user_path(session[:user_id]) %></li>
+    <% else %>
+    <li><%= link_to "login", '#', class: "login" %></li>
+    <li><%= link_to "sign up", '#', class: "signup" %></li>
+    <% end %>
+  </ul>
+</nav>
+
 <div id = "slogan"><h1>Take your first bite</h1>
 </div>
 <div id = "home_search">
@@ -35,4 +60,5 @@
     <h4 id = "subtitle"><%= review.restaurant.name %></h4>
     <h4 id = "city"><%= review.restaurant.city %>, <%= review.restaurant.state %></h4>
 <% end %>
+</div>
 </div>
