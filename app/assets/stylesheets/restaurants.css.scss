@@ -7,11 +7,25 @@
 	text-align: center;
 	font-size: 3em;
 }
-.restaurant_image{
+
+
+.restaurant_image_visible {
 	width: 100%;
 	height: auto;
 	border-radius: 5px;
+	display: block;
+	visibility: visible;
 }
+
+.restaurant_image_hidden{
+	width: 0%;
+	height: auto;
+	border-radius: 5px;
+	display: block;
+	visibility: hidden;
+}
+
+
 
 #carousel {
 	margin-top: 1em;

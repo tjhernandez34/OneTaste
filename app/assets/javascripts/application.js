@@ -1,3 +1,17 @@
+var currentImage=1;
+  function showImage() {
+      console.log("in loop")
+      last = "#image" + (currentImage - 1);
+      string = "#image" + currentImage;
+      console.log(last)
+      console.log(string)
+      $(last).removeClass('.restaurant_image_visible');
+      $(last).addClass('.restaurant_image_hidden');
+      $(string).removeClass('.restaurant_image_hidden');
+      $(string).addClass('.restaurant_image_visible');
+   };
+
+
 $(document).ready(function(){
   $(".vote").on('click', function(event){
     event.preventDefault();
@@ -57,6 +71,13 @@ $(document).ready(function(){
     $("#slogan").css('opacity', '1');
     $("#box").attr('class', 'pure-input-1-4');
   });
+
+setInterval( function(){showImage()
+  currentImage++;
+    if (string === undefined) {
+      currentImage = 0;
+    }
+}, 5000);
 
 })
 

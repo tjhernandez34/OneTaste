@@ -2,10 +2,16 @@
 <b><p id="restaurant_name"><%= @restaurant.name %></b> <% if @restaurant.creator_id == session[:user_id] %> <%= link_to "Edit", edit_restaurant_path(@restaurant) %></p>
 <% end %>
 <div id="carousel">
-<% @images.each do |image| %>
-  <%= image_tag image.image.url, :class => "restaurant_image" %>
+  <% view_image = @images.first %>
+  <%= image_tag view_image.image.url, :class => "restaurant_image_visible", :id => "restimage0" %>
+  <% hide_image = @images[1..@images.length] %>
+  <% hide_image.each_with_index do |image, index| %>
+  <%= image_tag image.image.url, :class => "restaurant_image_hidden", :id => "restimage#{index + 1}" %>
 <% end %>
+
 </div>
+
+
 
 
 <p>Upvotes: <div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count %></div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
