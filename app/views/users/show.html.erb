@@ -2,7 +2,7 @@
 <div class="user_header">
   <!-- <div class="avatar_holder"> -->
   <%= image_tag @user.avatar.url, :class => "profile_avatar"  %>
-  <span class='user_info_holder'> <%= @user.username %></span>
+  <span class='user_info_holder'> <%= @user.username %> <span class='user_yumz'><%=@user.points.count%> YUMZ!</span></span>
 <!-- </div> -->
 </div>
 <div class="user_tools">
