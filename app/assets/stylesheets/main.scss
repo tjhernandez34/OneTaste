@@ -32,7 +32,21 @@ a {
   margin: 0 auto;
   position: relative;
   width: 5%;
+
   height: 100%;
+  // border: 1px solid red;
+}
+
+
+#header_search {
+  display: block;
+  float:left;
+  margin: 0 auto;
+  position: relative;
+
+  height: 100%;
+  vertical-align: middle;
+  padding-top: 8.5px;
   // border: 1px solid red;
 }
 
