@@ -33,3 +33,82 @@
 	margin-left: 32.5%;
 	margin-right: 32.5%;
 }
+
+.details {
+	width: 40%;
+	margin-top: 5em;
+	margin-bottom: .5em;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+.restaurant_details {
+	float: left;
+	font-size: 2em;
+}
+
+.restaurant_actions {
+	float: right;
+}
+
+.super_critics {
+	margin-top: 4em;
+	clear: both;
+	width: 80%;
+	margin: auto;
+}
+
+.review {
+	clear: both;
+	border: 3px solid #00a2b2;
+	padding: 1em;
+	width: 70%;
+	height: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.super_critics h2 {
+	clear: both;
+	margin-top: 3em;
+	margin-bottom: .5em;
+	text-align: center;
+}
+
+#top_reviewers > li {
+	position: relative;
+	border: 3px solid #00a2b2;
+	display: block;
+	width: 28%;
+}
+
+#top_reviewers > li:first-child {
+	float: left;
+	margin-left: 16%;
+	margin-top: 4em;
+	margin-bottom: 4em;
+	padding: 2em;
+}
+
+#top_reviewers > li:last-child {
+	margin-right: 16%;
+	float: right;
+	margin-top: 4em;
+	margin-bottom: 4em;
+	padding: 2em;
+}
+
+
+
+// .critic0 {
+// 	border: 3px solid #00a2b2;
+// 	width: 35%;
+// 	float: left;
+// }
+
+// .critic1 {
+// 	border: 3px solid #00a2b2;
+// 	width: 35%;
+// 	float: right;
+// }

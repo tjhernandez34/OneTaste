@@ -20,16 +20,16 @@
   </div>
 
 
-
-
-<p>Upvotes: <div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count %></div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
+<div class="details">
+<div class="restaurant_details">
+<p><div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count  %> YUMZ!</div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
   <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
 
 <p><%= @restaurant.street_address%></p>
 <p><%= @restaurant.city %>, <%=@restaurant.state%></p>
-
-
+</div>
+<div class="restaurant_actions">
 <% if session[:user_id] %>
   <%= form_for :review, url: review_create_path, method: 'post' do |f| %>
     <p><%= f.text_field :title, :placeholder => "Title" %></p>
@@ -49,25 +49,33 @@
       <p><%= f.submit "Create" %></p>
     <% end %>
 <% end %>
+</div>
+</div>
 
 <div class="super_critics">
-  <h1>SUPER CRITICS</h1>
-  <% @restaurant.top_reviewers.each do |review| %>
-      <h3><%= review.title %></h3>
+<h2>SUPER CRITICS</h2>
+</div>
+<ul id = "top_reviewers">
+<% if @restaurant.top_reviewers != nil %>
+  <% @restaurant.top_reviewers.each_with_index do |review, index| %>
+
+      <li><h3><%= review.title %></h3>
       <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
-      <p>Review Points: <%= review.reviewer.points.count %></p>
-      <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
+      <p>Total YUMZ!: <%= review.reviewer.points.count %></p>
+      <p><div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %> YUMZ!</div>
         <%= link_to review_votes_path(review), method: :post   do %>
           <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
         <% end %></p>
       <p><%= review.content%></p>
   <% end %>
+  <% end %></li>
+</ul>
   <br>
-</div>
+
 
 <% reviews = @restaurant.reviews.sort_by {|review| review.votes.count} %>
 <% reviews.reverse.each do |review|%>
-  <div id='review'>
+  <div class='review'>
   <% if session[:user_id] == review.reviewer_id %>
     <%= link_to "edit", edit_review_path(review) %>
     <%= button_to "delete", review_delete_path(review), method: :delete %>
@@ -75,7 +83,7 @@
 
   <h3><%= review.title %></h3>
 
-  <p>Upvotes:  <div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %></div>
+  <p><div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %> YUMZ!</div>
     <%= link_to review_votes_path(review), method: :post   do %>
       <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %>
@@ -107,7 +115,7 @@
 
     <%= link_to "#{comment.commenter.username}", user_path(comment.commenter.id) %>
     <%= comment.content %>
-    <p>Upvotes:  <div id="<%= "comment_" + "#{comment.id}"%>"><%= comment.votes.count %></div>
+    <p><div id="<%= "comment_" + "#{comment.id}"%>"><%= comment.votes.count %> YUMZ!</div>
 
     <%= link_to comment_votes_path(comment), method: :post   do %>
       <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= comment_votes_path(comment) %>" data-type="<%= comment.class %>" data-id="<%= 'comment ' + "#{comment.id}" %>" data-user="<%= session[:user_id] %>"/>

@@ -11,6 +11,14 @@
 </head>
 <body>
   <%= render "partials/nav" %>
+
+  <div class = "modal login-form hidden">
+    <%= render "partials/login" %>
+  </div>
+  <div class = "modal signup-form hidden">
+    <%= render "partials/signup" %>
+  </div>
+
 <%= yield %>
 
 </body>

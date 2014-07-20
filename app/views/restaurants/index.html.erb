@@ -1,4 +1,5 @@
 <div id = "slogan"><h1>Take your first bite</h1>
+</div>
 <div id = "home_search">
   <%= form_tag("/search", method: "get", class: "pure-form") do %>
   <%= label_tag(:q, "Find a restaurant:", id: "search_tag") %>
@@ -20,7 +21,6 @@
   <h3 id = "list2"><%= restaurant.street_address%></h3>
   <h3 id = "list"><%= restaurant.city %>, <%=restaurant.state%></h3>
 <%end %>
-</div>
 
 <div id='users_splash'>
   <h1 class = "subheading" id = "user"> Or read about it first </h1>
