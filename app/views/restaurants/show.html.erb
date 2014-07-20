@@ -53,13 +53,14 @@
 </div>
 
 <div class="super_critics">
-<h2>SUPER CRITICS</h2>
+
 </div>
 <ul id = "top_reviewers">
 <% if @restaurant.top_reviewers != nil %>
   <% @restaurant.top_reviewers.each_with_index do |review, index| %>
 
     <li>
+      <h2>SUPER CRITIC</h2>
       <img class = 'star' src="/gold_star.png">
       <h3><%= review.title %></h3>
 

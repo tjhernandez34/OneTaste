@@ -1,4 +1,5 @@
 // Place all the styles related to the User controller here.
+$white: #FFF6ef;
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // .user_welcome {
@@ -34,7 +35,9 @@
   left:0;
   right:0;
   top: 0;
-  height: 15em;
+  height: 25em;
+  border-bottom: 1px solid #00a2b2;
+  background-color: $white;
 }
 
 .user_info_holder {
@@ -56,6 +59,7 @@
 .reviewer_list {
   border: 2px solid #00a2b2;
   margin: 0 auto;
+  margin-top: 5em;
   width: 50%;
   height: auto;
 }
@@ -75,13 +79,22 @@
 }
 
 .user_tools{
+  padding-top: 6em;
+  margin-top: 8em;
+  margin-left: 80em;
   clear: both;
+
 }
 
 .user_tools p {
   margin-bottom: .5em;
 }
 
-.user_reviews {
-  margin-top: 1em;
+.user_reviews,
+.reviewers {
+  margin: 0 auto;
+  margin-top: 4em;
+  width: 50%;
+  text-align: center;
 }
+

@@ -38,7 +38,7 @@
 <div class="user_reviews">
   <h2>User Reviews</h2>
   <% @user.reviews.each do |review| %>
-    <p><b><%= review.restaurant.name %></b></p>
+    <p><b><%= link_to "#{review.restaurant.name}",restaurant_path(review.restaurant) %></b></p>
     <p><%= review.title %></p>
     <p><%= review.content %></p>
     <p><%= review.votes.count %> YUMZ!</p>
