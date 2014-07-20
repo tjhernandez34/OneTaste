@@ -1,17 +1,26 @@
 <% if session[:user_id] == @user.id %>
-<h1>Welcome <%= @user.username %></h1>
-<%= image_tag @user.avatar.url, :class => "avatar"  %>
-
-<%= link_to "Create Restaurant", new_restaurant_path %>
+<div class="user_header">
+  <!-- <div class="avatar_holder"> -->
+  <%= image_tag @user.avatar.url, :class => "profile_avatar"  %>
+  <span class='user_info_holder'> <%= @user.username %> <span class='user_yumz'><%=@user.points.count%> YUMZ!</span></span>
+<!-- </div> -->
+</div>
+<div class="user_tools">
 <h2>User Restaurants</h2>
 <% @user.restaurants.each do |restaurant| %>
   <p><b><%= link_to "#{restaurant.name}",restaurant_path(restaurant) %></b></p>
   <p>Upvotes:  <%= restaurant.votes.count %></p>
 <% end %>
-
+<%= link_to "Create New Restaurant", new_restaurant_path %>
+</div>
 
 <%else %>
+<div class="user_header">
+  <%= image_tag @user.avatar.url, :class => "avatar"  %>
+  <div class='user_info_holder'>
 <h1><%= @user.username %></h1>
+</div>
+</div
 <% end %>
 <% if session[:user_id] && @friendship.length == 0 %>
 <% if @user.id != session[:user_id] %>
@@ -29,7 +38,7 @@
 <div class="user_reviews">
   <h2>User Reviews</h2>
   <% @user.reviews.each do |review| %>
-    <p><b><%= review.restaurant.name %></b></p>
+    <p><b><%= link_to "#{review.restaurant.name}",restaurant_path(review.restaurant) %></b></p>
     <p><%= review.title %></p>
     <p><%= review.content %></p>
     <p><%= review.votes.count %> YUMZ!</p>
@@ -45,14 +54,14 @@
     <p><%=image_tag friendship.friend.avatar.url, :class => "avatar"  %></p>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
       <% if @user.id == session[:user_id] %>
-      <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
+        <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
         <%= f.hidden_field :friendship_id, value: friendship.id %>
-      <%= submit_tag("Delete Reviewer") %>
-    </div>
-  </div>
+        <%= submit_tag("Delete Reviewer") %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
+  </div>
 </div>
 
 

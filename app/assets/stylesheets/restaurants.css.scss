@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #restaurant_name {
+	margin-top: 2em;
 	color: black;
 	text-align: center;
 	font-size: 3em;
@@ -70,12 +71,7 @@
 	margin-right: 15%;
 }
 
-.super_critics h2 {
-	clear: both;
-	margin-top: 3em;
-	margin-bottom: .5em;
-	text-align: center;
-}
+
 
 #top_reviewers > li {
 	z-index: 1;
@@ -110,6 +106,17 @@
 	height: 2em;
 	width: auto;
 }
+li h2 {
+	z-index: -1;
+	position: absolute;
+	right:0;
+	top: 0;
+	// margin-left: -20px;
+	height: 2em;
+	width: auto;
+	color: #FF7613;
+}
+
  #review_title {
  	margin-bottom: 10px;
  }
