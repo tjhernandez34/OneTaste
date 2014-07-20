@@ -20,18 +20,27 @@ $(document).ready(function(){
         console.log("#" + label + "_" + id)
         console.log(response);
       }
- });
-})
+    });
+  })
 
   $(".pure-input-1-4").on('click', function(){
     $("#slogan").fadeTo( "slow" , 0.2);
 
   });
 
+  $(window).scroll(function(){
+    $(".restaurants_splash").show();
+    $("#users_splash").show();
+  });
 
+  $(".restaurants_splash").on('click', function(){
+    $("#slogan").css('opacity', '1');
+  });
 
-  // $("#slogan").on('click', function(){
-  //   $("#slogan").css('opacity', '1');
+  $("#users_splash").on('click', function(){
+    $("#slogan").css('opacity', '1');
+  });
+
 })
 
 

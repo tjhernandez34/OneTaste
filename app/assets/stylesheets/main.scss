@@ -4,6 +4,7 @@ $light-blue: #63f1ff;
 $orange: #FF7613;
 $white: #FFF6ef;
 $grey: #B29f91;
+$dark_orange: #FF6000;
 $font-stack: Roboto, sans-serif;
 
 .title {
@@ -146,7 +147,9 @@ li a:hover {
 }
 
 h2 a{
-  color: $orange;
+  color: $dark_orange;
+  text-shadow: .4px .4px .4px black;
+
 }
 .restaurant_title {
   display: inline-block;
@@ -159,6 +162,89 @@ h2 a{
 
 .restaurants_splash {
   // text-align: center;
-  margin: 20px;
-  width: 50%;
+  width: 49%;
+  float: left;
+  background-image: url('http://www.punchbowl.com/gridfs/fs/4e7fe0ea8b28d9185c000c57-1317003499');
+  height: 500px;
+  padding-left: 1%;
+
 }
+
+#users_splash{
+  width: 49%;
+  float: right;
+  padding-left: 1%;
+  background-image:url("http://www.thaitablerestaurant.com/wp-content/themes/thaitable/images/background/05.jpg");
+  height: 500px;
+  background-size: cover;
+  color: $white;
+
+}
+
+.subheading {
+  color: black;
+  padding-bottom: 30px;
+  padding-top: 5px;
+
+}
+
+#user {
+  color: $white;
+  padding-bottom: 35px;
+  padding-top: 5px;
+
+
+}
+
+#list1{
+  padding-top:2px;
+  font-style: italic;
+}
+
+
+#list2{
+  padding-top:10px;
+}
+
+.vote{
+padding-right: 6px;
+}
+
+#review_title a {
+  color: $white;
+  padding-top: 70px;
+
+}
+
+#review_title {
+  color: white;
+  padding-top: 15px;
+  width: 50%;
+  line-height: 1.3em;
+  letter-spacing: .08em;
+}
+
+
+#reviewer_photo{
+  border-radius: 50%;
+  box-shadow: 0px 0px 7px #fff;
+}
+
+#subtitle{
+  padding-top: 10px;
+  letter-spacing: .08em;
+}
+
+#author a {
+  color: $light-blue;
+}
+
+#author {
+  padding-top: 3px;
+  letter-spacing: .08em;
+}
+
+#city{
+  letter-spacing: .08em;
+}
+
