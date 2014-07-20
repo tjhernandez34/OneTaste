@@ -51,12 +51,12 @@ $(document).ready(function() {
         };
     });
 
-    // $('.close').on('click', function(event) {
-    //     event.preventDefault();
-    //     if ($('.signup-form').is(":visible")) {
-    //         $('.signup-form').fadeToggle(400);
-    //     };
-    // })
+    //-------------login/sugnup submit------------
+
+    $('.login-form > .submit').submit(function() {
+        $.post('/')
+    })
+
     //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
@@ -145,7 +145,7 @@ $(document).ready(function() {
         };
     }, 5000);
 
-    if(window.location.pathname != '/'){
+    if (window.location.pathname != '/') {
         $("#title").css('class', 'title_elsewhere');
     };
 
