@@ -24,36 +24,38 @@ $(document).ready(function(){
   })
 
   $(".pure-input-1-4").on('click', function(){
-    $("#slogan").fadeTo( "slow" , 0.2);
+    $("#slogan").fadeTo( "slow" , 0.4);
+    $('#search_tag').hide();
+    $("#box").attr('class', 'pure-input-1-2');
 
   });
 
-  $(window).bind('mousewheel', function(event) {
-    if (event.originalEvent.wheelDelta >= 0) {
-        console.log('Scroll up');
-    }
-    else {
-        console.log('Scroll down');
-    }
-});
+  $("#slogan").on('click', function(){
+    $("#slogan").fadeTo( "slow" , 1);
+    $("#box").attr('class', 'pure-input-1-4');
 
-
+  });
 
   $(document).scroll(function(){
-    $(".restaurants_splash").show();
-    $("#users_splash").show();
-    $("#slogan").css('height', '600px')
+    if($(document).scrollTop() > 30){
+      $(".restaurants_splash").show();
+      $("#users_splash").show();
+      $("#slogan").css('height', '550px');}
     if($(document).scrollTop() == 0){
-    $("#slogan").css('height', '900px');
-  };
+      $("#slogan").css('height', '900px');
+      $(".restaurants_splash").hide();
+      $("#users_splash").hide();
+    };
   });
 
   $(".restaurants_splash").on('click', function(){
     $("#slogan").css('opacity', '1');
+    $("#box").attr('class', 'pure-input-1-4');
   });
 
   $("#users_splash").on('click', function(){
     $("#slogan").css('opacity', '1');
+    $("#box").attr('class', 'pure-input-1-4');
   });
 
 })

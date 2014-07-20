@@ -10,7 +10,7 @@
 
 <div class = "restaurants_splash">
 
-<h1 class = "subheading"> Try a new main course... </h1>
+<h1 class = "subheading"> Try some place new tonight... </h1>
 
 <% @restaurants.each do |restaurant| %>
   <h2 class = "restaurant_title"><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h2>
@@ -25,7 +25,7 @@
 </div>
 
 <div id='users_splash'>
-  <h1 class = "subheading" id = "user"> Or read about one </h1>
+  <h1 class = "subheading" id = "user"> Or read about it first </h1>
 <% @users.each do |user| %>
 <img id = "reviewer_photo" src = 'seed_photos/<%= rand(6).to_s + ".png" %>' width = "70px" />
   <% review = user.reviews.sample %>
