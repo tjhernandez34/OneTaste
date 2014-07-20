@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   delete '/comments/:id(.:format)' => 'comments#destroy', as: 'comment_delete'
   delete '/friendships' => 'friendships#destroy', as: 'friendship_destroy'
 
+  get '/search/users' => 'users#search'
   get '/search' => 'restaurants#search'
 
 end

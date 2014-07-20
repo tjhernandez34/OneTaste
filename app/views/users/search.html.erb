@@ -1,0 +1,11 @@
+<h2>Search Results</h2>
+<div class="reviewer_list">
+
+<% @results.each do |user| %>
+<div class='reviewer_info'>
+ <%= image_tag user.avatar.url, :class => "avatar"  %>
+  <b><%= user.username%></b>
+  <%= link_to "#{user.username}", user_path(user) %>
+  </div>
+  <% end %>
+</div>

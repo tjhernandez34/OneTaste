@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates :password, :length => {:minimum => 6, :message => "Password must be at least 6 characters"}
 
+
+  def self.search(search)
+    @users = where('username LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%")
+  end
+
 end

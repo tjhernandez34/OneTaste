@@ -17,7 +17,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
+  def search
+    @results = User.search(params[:search])
+  end
 
  private
 
