@@ -6,6 +6,7 @@ $white: #FFF6ef;
 $grey: #B29f91;
 
 
+
 .title {
   font-family: 'Lobster', cursive;
   text-shadow: 1px 1px 1px black;
@@ -68,7 +69,7 @@ body {
 }
 
 nav {
-  height: 3.5em;
+  height: 5.5em;
   background-color: $blue;
   // border: 1px solid deeppink;
   /*box-shadow: 0 3px 1px .5px #666;*/
@@ -82,6 +83,8 @@ h1 {
 
 .title {
   display: inline-block;
+  position: relative;
+  top: 20%;
   margin: 0 auto;
   // border: 1px solid blue;
   text-align: center;
@@ -90,23 +93,33 @@ h1 {
 }
 
 nav ul {
+  /*position: relative;
+  bottom: 20%;*/
+  height: 100%;
   width: 24%;
   float:right;
-  // background-color: pink;
+  /*background-color: pink;*/
 }
 
 .links {
-  padding-top: 5px;
+  /*padding-top: 5px;*/
   // border: 1px solid red;
 }
 
 nav li {
+  position: relative;
   vertical-align: middle;
   display: inline-block;
-  // border: 1px solid blue;
+  /*border: 1px solid blue;*/
   float: right;
   margin: 0 20px;
   padding-top: 13px;
+}
+
+@media (min-width: 835px) {
+  nav li {
+    top: 20%;
+  }
 }
 
 li a {
@@ -183,3 +196,5 @@ h2 a{
   margin: 20px;
   width: 50%;
 }
+
+
