@@ -35,7 +35,7 @@ $(document).ready(function(){
       data: {vote: {voteable_type: data, voteable_id: id, voter_id: user_id}},
       dataType: "json",
       success: function(response){
-        $("#" + label + "_" + id).text(response);
+        $("#" + label + "_" + id).text(response + ' YUMZ!');
         console.log("#" + label + "_" + id)
         console.log(response);
       }

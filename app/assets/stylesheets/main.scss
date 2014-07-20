@@ -89,15 +89,14 @@ nav li {
   padding-top: 13px;
 }
 
-li a {
+.links li a {
   color: $white;
   font-weight: bold;
   text-shadow: .5px .5px .5px black;
   letter-spacing: .10em;
-
 }
 
-li a:hover {
+.links li a:hover {
   color: $orange;
 }
 
@@ -134,6 +133,12 @@ li a:hover {
   color: $white;
   width:100px;
 
+}
+
+input[type=submit] {
+  background-color: $blue;
+  color: $white;
+  width:auto;
 }
 
 .pure-input-1-4{
