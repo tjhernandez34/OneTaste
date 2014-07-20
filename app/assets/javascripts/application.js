@@ -1,21 +1,21 @@
 var currentImage = 1;
 
-function showImage() {
-    array_length = $('#images_length').val()
-    // console.log("in loop")
-    // console.log(array_length)
+  function showImage() {
+      array_length = $('#images_length').val()
+      // console.log("in loop")
+      // console.log(array_length)
 
-    last = "#restimage" + (currentImage - 1);
-    string = "#restimage" + currentImage;
-    // console.log(last)
-    // console.log(string)
-    // console.log(currentImage)
-    $(last).removeClass('restaurant_image_visible');
-    $(last).addClass('restaurant_image_hidden');
-    $(string).removeClass('restaurant_image_hidden');
-    $(string).addClass('restaurant_image_visible');
+      last = "#restimage" + (currentImage - 1);
+      string = "#restimage" + currentImage;
+      // console.log(last)
+      // console.log(string)
+      // console.log(currentImage)
+      $(last).removeClass('restaurant_image_visible');
+      $(last).addClass('restaurant_image_hidden');
+      $(string).removeClass('restaurant_image_hidden');
+      $(string).addClass('restaurant_image_visible');
 
-};
+ };
 
 
 $(document).ready(function() {
