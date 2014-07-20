@@ -2,6 +2,11 @@
   <div class= "logo">
     <%= link_to(image_tag('logo.svg', size: "20x20"), root_path )%>
   </div>
+  <span id = "header_search" class = "pure-form">
+    <% unless current_page?(root_path) %>
+    <%= render "partials/restaurant_search" %>
+    <% end %>
+  </span>
   <div class = "title">
     <a href = '/'><h1>OneTaste</h1></a>
   </div>
