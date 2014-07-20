@@ -123,19 +123,6 @@ $(document).ready(function() {
 
     });
 
-    $(document).scroll(function() {
-        if ($(document).scrollTop() > 30) {
-            $(".restaurants_splash").show();
-            $("#users_splash").show();
-            $("#slogan").css('height', '550px');
-        }
-        if ($(document).scrollTop() == 0) {
-            $("#slogan").css('height', '900px');
-            $(".restaurants_splash").hide();
-            $("#users_splash").hide();
-        };
-    });
-
     $(".restaurants_splash").on('click', function() {
         $("#slogan").css('opacity', '1');
         $("#box").attr('class', 'pure-input-1-4');
