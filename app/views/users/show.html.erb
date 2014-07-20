@@ -13,6 +13,19 @@
 <%else %>
 <h1><%= @user.username %></h1>
 <% end %>
+<% if session[:user_id] && @friendship.length == 0 %>
+<% if @user.id != session[:user_id] %>
+<%= form_for :friendships, url: friendship_create_path, method: 'post' do |f| %>
+      <%= f.hidden_field :friend_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
+  <%= submit_tag("Add Friend") %>
+  <% end %>
+  <% end %>
+<% elsif session[:user_id] && @friendship.length == 1 %>
+  <br>
+<% elsif @user.id == session[:user_id] %>
+  <br>
+<% end %>
 <div class="user_reviews">
   <h2>User Reviews</h2>
   <% @user.reviews.each do |review| %>
@@ -27,6 +40,12 @@
   <% @user.friendships.each do |friendship| %>
     <p><%= friendship.friend.avatar %></p>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
+    <% if @user.id == session[:user_id] %>
+    <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
+      <%= f.hidden_field :friendship_id, value: friendship.id %>
+    <%= submit_tag("Delete Friend") %>
+    <% end %>
+    <% end %>
   <% end %>
 </div>
 
