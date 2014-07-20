@@ -139,9 +139,9 @@ $(document).ready(function() {
         };
     }, 5000);
 
-    // if(window.location.pathname != '/'){
-
-    // }
+    if(window.location.pathname != '/'){
+        $("#title").css('class', 'title_elsewhere');
+    };
 
 
     $("#box").val('');
