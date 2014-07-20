@@ -1,21 +1,21 @@
 var currentImage = 1;
 
-  function showImage() {
-      array_length = $('#images_length').val()
-      // console.log("in loop")
-      // console.log(array_length)
+function showImage() {
+    array_length = $('#images_length').val()
+    // console.log("in loop")
+    // console.log(array_length)
 
-      last = "#restimage" + (currentImage - 1);
-      string = "#restimage" + currentImage;
-      // console.log(last)
-      // console.log(string)
-      // console.log(currentImage)
-      $(last).removeClass('restaurant_image_visible');
-      $(last).addClass('restaurant_image_hidden');
-      $(string).removeClass('restaurant_image_hidden');
-      $(string).addClass('restaurant_image_visible');
+    last = "#restimage" + (currentImage - 1);
+    string = "#restimage" + currentImage;
+    // console.log(last)
+    // console.log(string)
+    // console.log(currentImage)
+    $(last).removeClass('restaurant_image_visible');
+    $(last).addClass('restaurant_image_hidden');
+    $(string).removeClass('restaurant_image_hidden');
+    $(string).addClass('restaurant_image_visible');
 
- };
+};
 
 
 $(document).ready(function() {
@@ -26,12 +26,13 @@ $(document).ready(function() {
         return false;
     });
 
-    $('html').on('click', function(event) {
-        event.preventDefault();
-        if ($('.login-form').is(":visible")) {
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('form').length) {
             $('.login-form').fadeToggle(400);
-        };
+        }
     });
+
+
 
     $('.signup').on('click', function(event) {
         event.preventDefault();
@@ -39,12 +40,11 @@ $(document).ready(function() {
         return false;
     });
 
-    $('html').on('click', function(event) {
-        event.preventDefault();
-        if ($('.signup-form').is(":visible")) {
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('form').length) {
             $('.signup-form').fadeToggle(400);
-        };
-    })
+        }
+    });
     //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
