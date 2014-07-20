@@ -1,4 +1,6 @@
 <% unless current_page?(root_path) %>
+<div id = "site_nav">
+
 <nav>
   <div class= "logo">
     <%= link_to(image_tag('logo.svg', size: "20x20"), root_path )%>
@@ -22,3 +24,4 @@
   </ul>
 </nav>
 <% end %>
+</div>

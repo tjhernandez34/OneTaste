@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def show
     @friendship = Friendship.where('user_id = ? AND friend_id = ?', session[:user_id], params[:id])
     @user = User.find(params[:id])
+    puts @friendship
   end
 
   def search
