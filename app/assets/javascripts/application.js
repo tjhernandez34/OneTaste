@@ -26,6 +26,11 @@ $(document).ready(function() {
         return false;
     });
 
+
+$("#box").val('');
+
+})
+
     $(document).on('click', function(event) {
         if (!$(event.target).closest('.modal > form').length) {
             if ($('.login-form').is(":visible")) {
@@ -90,6 +95,7 @@ $(document).ready(function() {
         return false;
 
     });
+
 
     $("#slogan").on('click', function() {
         $("#slogan").fadeTo("slow", 1);

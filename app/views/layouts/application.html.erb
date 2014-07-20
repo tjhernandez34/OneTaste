@@ -11,16 +11,14 @@
 </head>
 <body>
   <%= render "partials/nav" %>
-  <% unless current_page?(root_path) %>
-  <%= render "partials/restaurant_search" %>
-  <% end %>
-  
+
   <div class = "modal login-form hidden">
     <%= render "partials/login" %>
   </div>
   <div class = "modal signup-form hidden">
     <%= render "partials/signup" %>
   </div>
+
 <%= yield %>
 
 </body>

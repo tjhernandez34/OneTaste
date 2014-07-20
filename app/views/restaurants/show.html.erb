@@ -22,7 +22,7 @@
 
 <div class="details">
 <div class="restaurant_details">
-<p><div id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count  %> YUMZ!</div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
+<p><div class = "test" id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count  %> YUMZ!</div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
   <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
 
@@ -59,7 +59,10 @@
 <% if @restaurant.top_reviewers != nil %>
   <% @restaurant.top_reviewers.each_with_index do |review, index| %>
 
-      <li><h3><%= review.title %></h3>
+    <li>
+      <img class = 'star' src="/gold_star.png">
+      <h3><%= review.title %></h3>
+
       <p><%= link_to "#{review.reviewer.username}", user_path(review.reviewer.id) %></p>
       <p>Total YUMZ!: <%= review.reviewer.points.count %></p>
       <p><div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %> YUMZ!</div>

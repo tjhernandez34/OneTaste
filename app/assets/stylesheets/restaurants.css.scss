@@ -35,7 +35,7 @@
 }
 
 .details {
-	width: 40%;
+	width: 50%;
 	margin-top: 5em;
 	margin-bottom: .5em;
 	margin-left: 30%;
@@ -48,6 +48,7 @@
 
 .restaurant_actions {
 	float: right;
+	margin-bottom: 3em;
 }
 
 .super_critics {
@@ -77,8 +78,9 @@
 }
 
 #top_reviewers > li {
+	z-index: 1;
 	position: relative;
-	border: 3px solid #00a2b2;
+	border: 3px solid #FF9900;
 	display: block;
 	width: 28%;
 }
@@ -97,6 +99,16 @@
 	margin-top: 4em;
 	margin-bottom: 4em;
 	padding: 2em;
+}
+
+.star {
+	z-index: -1;
+	position: absolute;
+	left:0;
+	top: 0;
+	// margin-left: -20px;
+	height: 2em;
+	width: auto;
 }
 
 
