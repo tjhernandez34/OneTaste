@@ -1,14 +1,14 @@
 var currentImage=1;
   function showImage() {
       console.log("in loop")
-      last = "#image" + (currentImage - 1);
-      string = "#image" + currentImage;
+      last = "#restimage" + (currentImage - 1);
+      string = "#restimage" + currentImage;
       console.log(last)
       console.log(string)
-      $(last).removeClass('.restaurant_image_visible');
-      $(last).addClass('.restaurant_image_hidden');
-      $(string).removeClass('.restaurant_image_hidden');
-      $(string).addClass('.restaurant_image_visible');
+      $(last).removeClass('restaurant_image_visible');
+      $(last).addClass('restaurant_image_hidden');
+      $(string).removeClass('restaurant_image_hidden');
+      $(string).addClass('restaurant_image_visible');
    };
 
 
@@ -74,7 +74,8 @@ $(document).ready(function(){
 
 setInterval( function(){showImage()
   currentImage++;
-    if (string === undefined) {
+    if ($(("#restimage" + currentImage)).attr('src') === undefined) {
+      $(string).addClass('restaurant_image_visible');
       currentImage = 0;
     }
 }, 5000);
