@@ -114,8 +114,8 @@ li a:hover {
   text-align: center;
   background-image: url('http://www.santafe.org/images/Links/6/446-9wine_OldHsPeopleDinner_6135.jpg');
   background-size: cover;
-  background-position: top 700px center;
-  height: 600px;
+  background-position: top 900px center;
+  height: 900px;
   padding-top: 100px;
   position: relative;
 }
@@ -167,6 +167,7 @@ h2 a{
   background-image: url('http://www.punchbowl.com/gridfs/fs/4e7fe0ea8b28d9185c000c57-1317003499');
   height: 500px;
   padding-left: 1%;
+  display: none;
 
 }
 
@@ -178,7 +179,7 @@ h2 a{
   height: 500px;
   background-size: cover;
   color: $white;
-
+  display: none;
 }
 
 .subheading {
@@ -192,7 +193,6 @@ h2 a{
   color: $white;
   padding-bottom: 35px;
   padding-top: 5px;
-
 
 }
 

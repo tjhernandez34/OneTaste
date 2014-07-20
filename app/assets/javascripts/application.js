@@ -28,9 +28,24 @@ $(document).ready(function(){
 
   });
 
-  $(window).scroll(function(){
+  $(window).bind('mousewheel', function(event) {
+    if (event.originalEvent.wheelDelta >= 0) {
+        console.log('Scroll up');
+    }
+    else {
+        console.log('Scroll down');
+    }
+});
+
+
+
+  $(document).scroll(function(){
     $(".restaurants_splash").show();
     $("#users_splash").show();
+    $("#slogan").css('height', '600px')
+    if($(document).scrollTop() == 0){
+    $("#slogan").css('height', '900px');
+  };
   });
 
   $(".restaurants_splash").on('click', function(){
