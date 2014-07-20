@@ -50,12 +50,6 @@ $(document).ready(function() {
         };
     });
 
-    // $('.close').on('click', function(event) {
-    //     event.preventDefault();
-    //     if ($('.signup-form').is(":visible")) {
-    //         $('.signup-form').fadeToggle(400);
-    //     };
-    // })
     //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
