@@ -45,7 +45,7 @@ $(document).ready(function() {
             $('.signup-form').fadeToggle(400);
         };
     })
-    //---------------some other stuff--------------
+    //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
         that = $(this).parent();
@@ -76,10 +76,13 @@ $(document).ready(function() {
         });
     })
 
+    //------------------ homepage search---------------
+
     $(".pure-input-1-4").on('click', function() {
         $("#slogan").fadeTo("slow", 0.4);
         $('#search_tag').hide();
         $("#box").attr('class', 'pure-input-1-2');
+        return false;
 
     });
 

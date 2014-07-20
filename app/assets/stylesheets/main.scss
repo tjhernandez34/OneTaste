@@ -113,9 +113,10 @@ li a:hover {
 
 #home_search {
   text-align: center;
-  position: relative;
-  top: 10%;
+  position: absolute;
+  top: 300px;
   width: 100%;
+  z-index: 90;
 }
 
 #slogan {
