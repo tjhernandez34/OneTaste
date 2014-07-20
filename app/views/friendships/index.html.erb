@@ -1,10 +1,14 @@
+  <div class="reviewer_list">
   <% @friendships.each do |friendship| %>
+    <div class='reviewer_info'>
   <%= image_tag friendship.friend.avatar.url, :class => "avatar"  %>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
     <% if @user.id == session[:user_id] %>
     <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
       <%= f.hidden_field :friendship_id, value: friendship.id %>
-    <%= submit_tag("Delete Friend") %>
+    <%= submit_tag("Delete Reviewer") %>
+  </div>
     <% end %>
     <% end %>
   <% end %>
+</div>

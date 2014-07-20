@@ -35,17 +35,21 @@
     <p>Upvotes:  <%= review.votes.count %></p>
   <% end %>
 </div>
-<div class="friends">
-  <h2><%= @user.username %>'s Friends</h2> <%= render "partials/user_search" %>
-  <%= link_to "View All Friends", friendships_path(user_id: @user.id) %>
+<div class="reviewers">
+  <h2><%= @user.username %>'s Followed Reviewers</h2> <%= render "partials/user_search" %>
+  <%= link_to "View All Reviewers", friendships_path(user_id: @user.id) %>
   <% friendships = @user.friendships[0..2] %>
+  <div class='reviewer_list'>
   <% friendships.each do |friendship| %>
+    <div class='reviewer_info'>
     <p><%=image_tag friendship.friend.avatar.url, :class => "avatar"  %></p>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
       <% if @user.id == session[:user_id] %>
       <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
         <%= f.hidden_field :friendship_id, value: friendship.id %>
-      <%= submit_tag("Delete Friend") %>
+      <%= submit_tag("Delete Reviewer") %>
+    </div>
+  </div>
       <% end %>
     <% end %>
   <% end %>

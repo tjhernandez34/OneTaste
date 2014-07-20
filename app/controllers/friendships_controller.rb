@@ -8,7 +8,6 @@ class FriendshipsController < ApplicationController
 
   def create
     Friendship.create(friendship_params)
-    Friendship.create(user_id: params[:friendships][:friend_id], friend_id: params[:friendships][:user_id])
     redirect_to user_path(params[:friendships][:friend_id])
   end
 

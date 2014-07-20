@@ -1,5 +1,5 @@
 <%= form_tag("/search/users", method: "get", class: "search") do %>
-  <%= label_tag(:q, "Find Friends By:") %>
+  <%= label_tag(:q, "Find Reviewers By:") %>
     <%= text_field_tag :search, params[:search], :placeholder => "Name or Email", id: "box" %>
   <%= submit_tag("Search") %>
 <% end %>
