@@ -7,17 +7,19 @@
 <% end %>
 </div>
 
+<div class = "restaurants_splash">
+<% @restaurants = @restaurants.sort_by {|restaurant| restaurant.votes.count} %>
+<% @restaurants.reverse.each do |restaurant| %>
+  <h2 class = "restaurant_title"><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h2> <div class = "votes"><b id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %></b> <%= link_to restaurant_votes_path(restaurant), method: :post  do %>
+      <img class ='vote' src="/ArrowUp.png" data-url="<%= restaurant_votes_path(restaurant) %>" data-type="<%= restaurant.class %>" data-id="<%= 'restaurant ' + "#{restaurant.id}" %>" data-user="<%= session[:user_id] %>"/><% end %></div>
 
 <div id='front_restaurants'>
 <% @restaurants.each do |restaurant| %>
   <p><b><%= restaurant.category%></b></p>
-  <p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
   <p><%= restaurant.street_address%></p>
   <p><%= restaurant.city %>, <%=restaurant.state%></p>
 
-  <p>Upvotes: <b id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %></b>     <%= link_to restaurant_votes_path(restaurant), method: :post   do %>
-      <img class ='vote' src="/ArrowUp.png" data-url="<%= restaurant_votes_path(restaurant) %>" data-type="<%= restaurant.class %>" data-id="<%= 'restaurant ' + "#{restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
-    <% end %></p>
+
   <br>
 <% end %>
 </div>
