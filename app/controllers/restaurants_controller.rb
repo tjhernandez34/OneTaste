@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
 
   def search
     @results = Restaurant.search(params[:search])
+    redirect_to restaurant_path(@results[0]) if @results.length == 1
   end
 
   def new

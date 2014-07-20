@@ -10,11 +10,30 @@ $font-stack: Roboto, sans-serif;
 .title {
   font-family: 'Lobster', cursive;
   text-shadow: 1px 1px 1px black;
+
+}
+
+.title a {
+   text-decoration: none;
 }
 
 body, nav, form, input[placeholder], input[value], button[value] {
   font-family: 'Bitter', serif;
 }
+
+#site_nav #header_search{
+  padding-top: 25px;
+}
+
+#site_nav #title{
+  width: auto;
+
+}
+
+
+
+
+#home
 
 a {
   text-decoration: none;
@@ -87,7 +106,7 @@ h1 {
 
 }
 
-.title_home {
+.title {
   display: inline-block;
   position: relative;
   top: 20%;
@@ -140,6 +159,7 @@ a {
   font-weight: bold;
   text-shadow: .5px .5px .5px black;
   letter-spacing: .10em;
+  text-decoration: none;
 }
 
 .links li a:hover {
@@ -198,6 +218,7 @@ input[type=submit] {
 h2 a{
   color: $dark_orange;
   text-shadow: .4px .4px .4px black;
+  text-decoration: none;
 
 }
 
@@ -264,6 +285,7 @@ padding-right: 6px;
 #title_review a {
   color: $white;
   padding-top: 70px;
+  text-decoration: none;
 
 }
 
@@ -288,6 +310,7 @@ padding-right: 6px;
 
 #author a {
   color: $light-blue;
+  text-decoration: none;
 }
 
 #author {
