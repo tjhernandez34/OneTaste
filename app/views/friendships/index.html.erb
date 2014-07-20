@@ -1,5 +1,5 @@
   <% @friendships.each do |friendship| %>
-    <p><%= friendship.friend.avatar %></p>
+  <%= image_tag friendship.friend.avatar.url, :class => "avatar"  %>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
     <% if @user.id == session[:user_id] %>
     <%= form_for :friendships, url: friendship_destroy_path, method: 'delete' do |f| %>
