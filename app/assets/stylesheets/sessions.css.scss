@@ -52,8 +52,17 @@ $grey: #B29f91;
 	color: $white;
 	text-shadow: .5px .5px .5px black;
 	border-radius: 500px;
-	height: 75px;
-	width: 75px;
+/*	height: 60px;
+	width: 75px;*/
 	border: none;
 	white-space: normal;
+}
+
+.login-form .form-btn {
+	height: 60px;
+}
+
+
+.signup-form .form-btn {
+	height: 75px;
 }

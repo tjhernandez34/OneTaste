@@ -1,21 +1,21 @@
 var currentImage = 1;
 
-  function showImage() {
-      array_length = $('#images_length').val()
-      // console.log("in loop")
-      // console.log(array_length)
+function showImage() {
+    array_length = $('#images_length').val()
+    // console.log("in loop")
+    // console.log(array_length)
 
-      last = "#restimage" + (currentImage - 1);
-      string = "#restimage" + currentImage;
-      // console.log(last)
-      // console.log(string)
-      // console.log(currentImage)
-      $(last).removeClass('restaurant_image_visible');
-      $(last).addClass('restaurant_image_hidden');
-      $(string).removeClass('restaurant_image_hidden');
-      $(string).addClass('restaurant_image_visible');
+    last = "#restimage" + (currentImage - 1);
+    string = "#restimage" + currentImage;
+    // console.log(last)
+    // console.log(string)
+    // console.log(currentImage)
+    $(last).removeClass('restaurant_image_visible');
+    $(last).addClass('restaurant_image_hidden');
+    $(string).removeClass('restaurant_image_hidden');
+    $(string).addClass('restaurant_image_visible');
 
- };
+};
 
 
 $(document).ready(function() {
@@ -26,12 +26,15 @@ $(document).ready(function() {
         return false;
     });
 
-    $('html').on('click', function(event) {
-        event.preventDefault();
-        if ($('.login-form').is(":visible")) {
-            $('.login-form').fadeToggle(400);
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.modal > form').length) {
+            if ($('.login-form').is(":visible")) {
+                $('.login-form').fadeToggle(400);
+            };
         };
     });
+
+
 
     $('.signup').on('click', function(event) {
         event.preventDefault();
@@ -39,13 +42,21 @@ $(document).ready(function() {
         return false;
     });
 
-    $('html').on('click', function(event) {
-        event.preventDefault();
-        if ($('.signup-form').is(":visible")) {
-            $('.signup-form').fadeToggle(400);
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.modal > form').length) {
+            if ($('.signup-form').is(":visible")) {
+                $('.signup-form').fadeToggle(400);
+            };
         };
-    })
-    //---------------some other stuff--------------
+    });
+
+    // $('.close').on('click', function(event) {
+    //     event.preventDefault();
+    //     if ($('.signup-form').is(":visible")) {
+    //         $('.signup-form').fadeToggle(400);
+    //     };
+    // })
+    //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
         that = $(this).parent();
@@ -76,10 +87,13 @@ $(document).ready(function() {
         });
     })
 
+    //------------------ homepage search---------------
+
     $(".pure-input-1-4").on('click', function() {
         $("#slogan").fadeTo("slow", 0.4);
         $('#search_tag').hide();
         $("#box").attr('class', 'pure-input-1-2');
+        return false;
 
     });
 

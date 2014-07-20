@@ -51,6 +51,7 @@ nav {
   height: 5.5em;
   background-color: $blue;
   // border: 1px solid deeppink;
+  z-index: 101;
   /*box-shadow: 0 3px 1px .5px #666;*/
 }
 
@@ -101,7 +102,9 @@ nav li {
   }
 }
 
-.links li a {
+
+li a {
+
   color: $white;
   font-weight: bold;
   text-shadow: .5px .5px .5px black;
@@ -114,9 +117,10 @@ nav li {
 
 #home_search {
   text-align: center;
-  position: relative;
-  top: 10%;
+  position: absolute;
+  top: 300px;
   width: 100%;
+  z-index: 90;
 }
 
 #slogan {
