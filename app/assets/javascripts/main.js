@@ -21,30 +21,6 @@ function showImage() {
 $(document).ready(function() {
 
 
-    //-------------login/sugnup submit------------
-
-    var loginForm =
-
-    $('.login-form > .submit').submit(function() {
-        $.ajax({
-            type: "POST",
-            url: '/login',
-            data: loginForm,
-            success: signupSuccess,
-            dataType: JSON
-        });
-    });
-
-    $('.signup-form > .submit').submit(function() {
-        $.ajax({
-            type: "POST",
-            url: '/signup',
-            data: signupForm,
-            success: signupSuccess,
-            dataType: JSON
-        });
-    })
-
     //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
