@@ -51,6 +51,12 @@ $(document).ready(function() {
         };
     });
 
+    //-------------login/sugnup submit------------
+
+    $('.login-form > .submit').submit(function() {
+        $.post('/')
+    })
+
     //---------------vote click--------------
     $(".vote").on('click', function(event) {
         event.preventDefault();
@@ -139,7 +145,7 @@ $(document).ready(function() {
         };
     }, 5000);
 
-    if(window.location.pathname != '/'){
+    if (window.location.pathname != '/') {
         $("#title").css('class', 'title_elsewhere');
     };
 
