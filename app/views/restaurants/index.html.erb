@@ -8,6 +8,7 @@
 </div>
 
 <div class = "restaurants_splash">
+<<<<<<< HEAD
 <% @restaurants = @restaurants.sort_by {|restaurant| restaurant.votes.count} %>
 <% @restaurants.reverse.each do |restaurant| %>
   <h2 class = "restaurant_title"><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h2> <div class = "votes"><b id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %></b> <%= link_to restaurant_votes_path(restaurant), method: :post  do %>
@@ -16,24 +17,29 @@
     </div>
 
 <div id='front_restaurants'>
+
+  <h1 class = "subheading"> Try a new main course... </h1>
+
 <% @restaurants.each do |restaurant| %>
-  <p><b><%= restaurant.category%></b></p>
-  <p><%= restaurant.street_address%></p>
-  <p><%= restaurant.city %>, <%=restaurant.state%></p>
+  <h2 class = "restaurant_title"><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h2>
+  <div class = "votes">
+    <%= link_to restaurant_votes_path(restaurant), method: :post  do %>
+      <img class ='vote' src="/ArrowUp.png" data-url="<%= restaurant_votes_path(restaurant) %>" data-type="<%= restaurant.class %>" data-id="<%= 'restaurant ' + "#{restaurant.id}" %>" data-user="<%= session[:user_id] %>"/><% end %><b id="<%= "restaurant_" + "#{restaurant.id}"%>"><%= restaurant.votes.count %> YUMZ!</b></div>
+  <h3 id = "list1"><b><%= restaurant.category%></b></h3>
+  <h3 id = "list2"><%= restaurant.street_address%></h3>
+  <h3 id = "list"><%= restaurant.city %>, <%=restaurant.state%></h3>
 
-
-  <br>
-<% end %>
+<%end %>
 </div>
 
-<div id='front_users'>
+<div id='users_splash'>
+  <h1 class = "subheading" id = "user"> Or read about one </h1>
 <% @users.each do |user| %>
-<p><%= link_to "#{user.username}", user_path(user.id) %></p>
+<img id = "reviewer_photo" src = 'seed_photos/<%= rand(6).to_s + ".png" %>' width = "70px" />
   <% review = user.reviews.sample %>
-    <h3><%= review.title %></h3>
-    <p><%= review.restaurant.name %></p>
-    <p><%= review.restaurant.city %> <%= review.restaurant.state %></p>
-    <p><%= review.content %></p>
-  <br>
+    <h3 id = "review_title"><%= link_to review.title, review_path(review)%></h3>
+    <h4 id = "author"> By <%= link_to "#{user.username}", user_path(user.id) %> </h4>
+    <h4 id = "subtitle"><%= review.restaurant.name %></h4>
+    <h4 id = "city"><%= review.restaurant.city %>, <%= review.restaurant.state %></h4>
 <% end %>
 </div>
