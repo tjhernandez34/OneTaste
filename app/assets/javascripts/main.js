@@ -2,14 +2,14 @@ var currentImage = 1;
 
 function showImage() {
     array_length = $('#images_length').val()
-    // console.log("in loop")
-    // console.log(array_length)
+    console.log("in loop")
+    console.log(array_length)
 
     last = "#restimage" + (currentImage - 1);
     string = "#restimage" + currentImage;
-    // console.log(last)
-    // console.log(string)
-    // console.log(currentImage)
+    console.log(last)
+    console.log(string)
+    console.log(currentImage)
     $(last).removeClass('restaurant_image_visible');
     $(last).addClass('restaurant_image_hidden');
     $(string).removeClass('restaurant_image_hidden');
@@ -83,12 +83,12 @@ $(document).ready(function() {
     setInterval(function() {
         showImage()
         currentImage++;
-        // console.log("just outside if");
-        // console.log(currentImage);
-        // console.log(array_length);
-        // console.log(currentImage === array_length);
+        console.log("just outside if");
+        console.log(currentImage);
+        console.log(array_length);
+        console.log(currentImage === array_length);
         if (currentImage > array_length) {
-            // console.log("if statement");
+            console.log("if statement");
             $(last).removeClass('restaurant_image_visible');
             $(last).addClass('restaurant_image_hidden');
             $('#restimage0').removeClass('restaurant_image_hidden');
