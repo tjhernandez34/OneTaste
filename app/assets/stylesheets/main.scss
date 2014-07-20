@@ -141,8 +141,12 @@ nav li {
   }
 }
 
+a {
+  color: $orange;
+}
 
-li a {
+
+.links li a {
 
   color: $white;
   font-weight: bold;
