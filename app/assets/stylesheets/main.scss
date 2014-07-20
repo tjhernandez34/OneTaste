@@ -48,7 +48,7 @@ a {
 }
 
 nav {
-  height: 3.5em;
+  height: 5.5em;
   background-color: $blue;
   // border: 1px solid deeppink;
   /*box-shadow: 0 3px 1px .5px #666;*/
@@ -62,6 +62,8 @@ h1 {
 
 .title {
   display: inline-block;
+  position: relative;
+  top: 20%;
   margin: 0 auto;
   // border: 1px solid blue;
   text-align: center;
@@ -72,6 +74,7 @@ h1 {
 nav ul {
   width: 24%;
   float:right;
+  height: 100%;
   // background-color: pink;
 }
 
@@ -82,6 +85,7 @@ nav ul {
 
 nav li {
   vertical-align: middle;
+  position: relative;
   display: inline-block;
   // border: 1px solid blue;
   float: right;
@@ -89,7 +93,17 @@ nav li {
   padding-top: 13px;
 }
 
+<<<<<<< HEAD
 .links li a {
+=======
+@media (min-width: 835px) {
+  nav li {
+     top: 20%;
+  }
+}
+
+li a {
+>>>>>>> bafc560f9ba8ba840dd2ee63fdfe2cac7545815d
   color: $white;
   font-weight: bold;
   text-shadow: .5px .5px .5px black;

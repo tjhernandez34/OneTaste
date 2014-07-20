@@ -1,3 +1,59 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blue: #00a2b2;
+$light-blue: #63f1ff;
+$orange: #FF7613;
+$white: #FFF6ef;
+$grey: #B29f91;
+
+
+
+
+.modal {	
+	display: none;
+  position: fixed;
+  z-index: 100;
+  overflow: scroll;
+
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+  background-color: rgba(10, 10, 10, .85);
+}
+
+.modal h2 {
+	color: $white;
+	text-shadow: 1px 1px 1px black;
+}
+
+.modal form {
+	text-align: center;
+	position: relative;
+	/*top: 30%;*/
+	/*left: 40%;*/
+	margin: 100px auto;
+	width: 315px;
+	height: 100%;
+}
+
+.form-field {
+	display: block;
+	margin: 10%;
+	border-radius: 5px;
+	font-size: 1.3em;
+	/*border: none;*/
+}
+
+.form-btn {
+	background-color: $blue;
+	color: $white;
+	text-shadow: .5px .5px .5px black;
+	border-radius: 500px;
+	height: 75px;
+	width: 75px;
+	border: none;
+	white-space: normal;
+}
