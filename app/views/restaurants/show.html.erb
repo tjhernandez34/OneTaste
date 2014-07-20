@@ -23,7 +23,7 @@
 <div class="details">
 <div class="restaurant_details">
 <p><div class = "test" id="<%= "restaurant_" + "#{@restaurant.id}"%>"><%= @restaurant.votes.count  %> YUMZ!</div>     <%= link_to restaurant_votes_path(@restaurant), method: :post   do %>
-  <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
+  <img class ='vote' src="/arrowUp.png" data-url="<%= restaurant_votes_path(@restaurant) %>" data-type="<%= @restaurant.class %>" data-id="<%= 'restaurant ' + "#{@restaurant.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %></p>
 
 <p><%= @restaurant.street_address%></p>
@@ -67,7 +67,7 @@
       <p>Total YUMZ!: <%= review.reviewer.points.count %></p>
       <p><div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %> YUMZ!</div>
         <%= link_to review_votes_path(review), method: :post   do %>
-          <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
+          <img class ='vote' src="/arrowUp.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
         <% end %></p>
       <p><%= review.content%></p>
   <% end %>
@@ -88,7 +88,7 @@
 
   <p><div id="<%= "review_" + "#{review.id}"%>"><%= review.votes.count %> YUMZ!</div>
     <%= link_to review_votes_path(review), method: :post   do %>
-      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
+      <img class ='vote' src="/arrowUp.png" data-url="<%= review_votes_path(review) %>" data-type="<%= review.class %>" data-id="<%= 'review ' + "#{review.id}" %>" data-user="<%= session[:user_id] %>"/>
     <% end %>
   </p>
 
@@ -121,7 +121,7 @@
     <p><div id="<%= "comment_" + "#{comment.id}"%>"><%= comment.votes.count %> YUMZ!</div>
 
     <%= link_to comment_votes_path(comment), method: :post   do %>
-      <img class ='vote' src="/button_arrow_green_up.png" data-url="<%= comment_votes_path(comment) %>" data-type="<%= comment.class %>" data-id="<%= 'comment ' + "#{comment.id}" %>" data-user="<%= session[:user_id] %>"/>
+      <img class ='vote' src="/arrowUp.png" data-url="<%= comment_votes_path(comment) %>" data-type="<%= comment.class %>" data-id="<%= 'comment ' + "#{comment.id}" %>" data-user="<%= session[:user_id] %>"/>
       </p>
     <% end %>
 

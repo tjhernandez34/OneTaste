@@ -1,17 +1,80 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// .user_welcome {
+//   color: black;
+//   text-align: center;
+//   margin-top: 2em;
+// }
+// .profile_avatar {
+//   margin-top: .5em;
+//   margin-left: -15em;
+// 	width: 15em;
+// 	height: auto;
+//   left: 0;
+//   float: left;
+// }
+.profile_avatar {
+  float: left;
+  margin-left: 15em;
+  margin-top: 4em;
+  margin-bottom: 3em;
+}
 
-.avatar {
-	width: 10em;
-	height: auto;
+  // .avatar_holder {
+  //   margin-left: 6em;
+  //   margin-top: 4em;
+  //   width: 50%;
+  // }
+// .user_info_holder{
+//   display: inline;
+// }
+.user_header {
+  width: 100%;
+  left:0;
+  right:0;
+  top: 0;
+  height: 15em;
+}
+
+.user_info_holder {
+  font-size: 4em;
+  margin-right: 13em;
+  float: right;
+  display: inline;
+  bottom: 0;
+  margin-top: 3em;
 }
 
 .reviewer_list {
-  -webkit-column-count: 4;/*Chrome, Safari, Opera*/
-  -moz-column-count: 4; /*Firefox*/
-  column-count: 4;
-  -webkit-column-gap: 40px;/*Chrome, Safari, Opera*/
-  -moz-column-gap: 40px; /*Firefox*/
-  column-gap: 40px;
+  border: 2px solid #00a2b2;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+
+.reviewer_info {
+  text-align: center;
+  border: 1px solid pink;
+}
+
+.reviewer_list {
+  -webkit-column-count: 3;/*Chrome, Safari, Opera*/
+  -moz-column-count: 3; /*Firefox*/
+  column-count: 3;
+  -webkit-column-gap: 1em;/*Chrome, Safari, Opera*/
+  -moz-column-gap: 1em; /*Firefox*/
+  column-gap: 1em;
+}
+
+.user_tools{
+  clear: both;
+}
+
+.user_tools p {
+  margin-bottom: .5em;
+}
+
+.user_reviews {
+  margin-top: 1em;
 }
