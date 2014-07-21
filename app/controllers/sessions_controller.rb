@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/', :notice => "Welcome, #{user.username}!"
     else
-      redirect_to '/login', :notice => "Invalid email or password"
+      error = "Email or Password is incorrect"
+      render json: error, status: 422
     end
   end
 
