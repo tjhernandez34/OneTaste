@@ -1,7 +1,7 @@
   <div class="reviewer_page_list">
   <ul id = 'reviewer_list'>
   <% @friendships.each do |friendship| %>
-   <li class = 'reviewer_list'> <div class='reviewer_page_info'>
+   <li class = 'reviewer_unordered_list'> <div class='reviewer_page_info'>
   <%= image_tag friendship.friend.avatar.url, :class => "avatar"  %>
     <p><%= link_to "#{friendship.friend.username}",user_path(friendship.friend) %></p>
     <% if @user.id == session[:user_id] %>

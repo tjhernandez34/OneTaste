@@ -21,12 +21,12 @@ class UsersController < ApplicationController
 
 
 
-    if @user.save
-      session[:user_id] = @user.id
-    else
+  #   if @user.save
+  #     session[:user_id] = @user.id
+  #   else
 
-    redirect_to "/users/#{@user.id}"
-  end
+  #   redirect_to "/users/#{@user.id}"
+  # end
 
   def show
     @friendship = Friendship.where('user_id = ? AND friend_id = ?', session[:user_id], params[:id])
