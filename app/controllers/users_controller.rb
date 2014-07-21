@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
     end
-    render :show
+    redirect_to "/users/#{@user.id}"
   end
 
   def show

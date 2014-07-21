@@ -17,10 +17,8 @@
 <%else %>
 <div class="user_header">
   <%= image_tag @user.avatar.url, :class => "avatar"  %>
-  <div class='user_info_holder'>
-<h1><%= @user.username %></h1>
+  <span class='user_info_holder'> <%= @user.username %> <span class='user_yumz'><%=@user.points.count%> YUMZ!</span></span>
 </div>
-</div
 <% end %>
 <% if session[:user_id] && @friendship.length == 0 %>
 <% if @user.id != session[:user_id] %>
