@@ -2,14 +2,14 @@ var currentImage = 1;
 
 function showImage() {
     array_length = $('#images_length').val()
-    console.log("in loop")
-    console.log(array_length)
+    // console.log("in loop")
+    // console.log(array_length)
 
     last = "#restimage" + (currentImage - 1);
     string = "#restimage" + currentImage;
-    console.log(last)
-    console.log(string)
-    console.log(currentImage)
+    // console.log(last)
+    // console.log(string)
+    // console.log(currentImage)
     $(last).removeClass('restaurant_image_visible');
     $(last).addClass('restaurant_image_hidden');
     $(string).removeClass('restaurant_image_hidden');
@@ -21,23 +21,29 @@ $(document).ready(function() {
     $(".vote").on('click', function(event) {
         event.preventDefault();
         that = $(this).parent();
-        console.log($(this).data('url'));
+        // console.log($(this).data('url'));
         type = ($(this).data("type"));
         id = ($(this).data("id")).split(" ")[1]
-        console.log(id)
+        // console.log(id)
         label = ($(this).data("id")).split(" ")[0]
-        console.log(label)
+        // console.log(label)
         user_id = ($(this).data("user"))
-        console.log(user_id)
+        // console.log(user_id)
         $.ajax({
             url: $(this).data('url'),
             type: "Post",
-            data: { vote: {voteable_type: type, voteable_id: id,voter_id: user_id}},
+            data: {
+                vote: {
+                    voteable_type: type,
+                    voteable_id: id,
+                    voter_id: user_id
+                }
+            },
             dataType: "json",
             success: function(response) {
                 $("#" + label + "_" + id).text(response + " YUMZ!");
-                console.log("#" + label + "_" + id)
-                console.log(response);
+                // console.log("#" + label + "_" + id)
+                // console.log(response);
             }
         });
     })
@@ -71,12 +77,12 @@ $(document).ready(function() {
     setInterval(function() {
         showImage()
         currentImage++;
-        console.log("just outside if");
-        console.log(currentImage);
-        console.log(array_length);
-        console.log(currentImage === array_length);
+        // console.log("just outside if");
+        // console.log(currentImage);
+        // console.log(array_length);
+        // console.log(currentImage === array_length);
         if (currentImage > array_length) {
-            console.log("if statement");
+            // console.log("if statement");
             $(last).removeClass('restaurant_image_visible');
             $(last).addClass('restaurant_image_hidden');
             $('#restimage0').removeClass('restaurant_image_hidden');
@@ -85,18 +91,23 @@ $(document).ready(function() {
         };
     }, 5000);
 
-        //---------------Modals JS------------
+    //---------------Modals JS------------
     $('.login').on('click', function(event) {
         event.preventDefault();
         $('.login-form').fadeToggle(400);
         return false;
     });
 
+    var fade = function() {
+        $('.login-form').fadeToggle(400);
+        console.log('fading');
+    }
+
 
     $(document).on('click', function(event) {
         if (!$(event.target).closest('.modal > form').length) {
             if ($('.login-form').is(":visible")) {
-                $('.login-form').fadeToggle(400);
+                fade();
             };
         };
     });
@@ -117,29 +128,42 @@ $(document).ready(function() {
         };
     });
 
-    //-------------login/sugnup submit------------
+    //-------------login/signup submit------------
 
-    var loginForm =
-
-    $('.login-form > .submit').submit(function() {
+    $('.login-form').submit(function(event) {
+        event.preventDefault();
         $.ajax({
             type: "POST",
             url: '/login',
-            data: loginForm,
-            success: signupSuccess,
-            dataType: JSON
+            data: {
+                user: {
+                    email: $('.email').val(),
+                    password: $('.password').val()
+                }
+            },
+            success: fade(),
+            error: function(data) {
+                $('.login_errors > li').text("Email or Password is incorrect");
+            }
         });
-    });
+    })
 
-    $('.signup-form > .submit').submit(function() {
-        $.ajax({
-            type: "POST",
-            url: '/signup',
-            data: signupForm,
-            success: signupSuccess,
-            dataType: JSON
-        });
-    });
+    // $('.signup-form').submit(function() {
+    //     event.preventDefault();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: '/users',
+    //         data: {
+    //             user: {
+    //                 username: $('.username').val(),
+    //                 email: $('.email').val(),
+    //                 password: $('.password').val()
+    //             }
+    //             success: fade(),
+    //             error: function(data) {
+    //                 $('.login_errors > li').text("Email or Password is incorrect");
+    //             });
+    //     })
 
     $("#box").val('');
 
@@ -164,4 +188,3 @@ $(document).ready(function() {
 //= require turbolinks
 //= require main
 //= require_tree .
-
