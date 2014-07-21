@@ -57,26 +57,32 @@ $white: #FFF6ef;
 }
 
 .reviewer_list {
-  border: 2px solid #00a2b2;
   margin: 0 auto;
   margin-top: 5em;
-  width: 50%;
+  width: 95%;
   height: auto;
 }
 
 .reviewer_info {
+
+  border: 2px solid #00a2b2;
   text-align: center;
-  border: 1px solid pink;
+  height: auto;
+  display: inline-block;
+  float: left;
+  margin-bottom: 10em;
+  margin-left: 7em;
 }
 
-.reviewer_list {
-  -webkit-column-count: 3;/*Chrome, Safari, Opera*/
-  -moz-column-count: 3; /*Firefox*/
-  column-count: 3;
-  -webkit-column-gap: 1em;/*Chrome, Safari, Opera*/
-  -moz-column-gap: 1em; /*Firefox*/
-  column-gap: 1em;
-}
+
+// .reviewer_list {
+//   -webkit-column-count: 3;/*Chrome, Safari, Opera*/
+//   -moz-column-count: 3; /*Firefox*/
+//   column-count: 3;
+//   -webkit-column-gap: 1em;/*Chrome, Safari, Opera*/
+//   -moz-column-gap: 1em; /*Firefox*/
+//   column-gap: 1em;
+// }
 
 .user_tools{
   padding-top: 6em;

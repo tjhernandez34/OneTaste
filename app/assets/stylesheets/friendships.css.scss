@@ -1,3 +1,14 @@
 // Place all the styles related to the friendships controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com
+.reviewer_page_list {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.reviewer_list {
+  float: left;
+  list-style: none;
+  display: inline-block;
+  width: 33%;
+}
