@@ -5,10 +5,26 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+    if @user.save
+      format.html { redirect_to '/', notice: 'User was successfully created.' }
+      format.js   {}
+      format.json { render nothing: true, status: :created}
+    else
+      format.html { render action: "new" }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
+  end
+
+
+
     if @user.save
       session[:user_id] = @user.id
-    end
+    else
+
     redirect_to "/users/#{@user.id}"
   end
 

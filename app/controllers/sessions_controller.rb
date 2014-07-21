@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def new
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
+    user = User.find_by_email(params[:user][:email])
 
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to '/', :notice => "Welcome, #{user.username}!"
+      render nothing: true
     else
       error = "Email or Password is incorrect"
       render json: error, status: 422
