@@ -1,7 +1,7 @@
 var currentImage = 1;
 
 function showImage() {
-    array_length = $('#images_length').val()
+    array_length = $('#images_length').val();
     // console.log("in loop")
     // console.log(array_length)
 
@@ -15,7 +15,10 @@ function showImage() {
     $(string).removeClass('restaurant_image_hidden');
     $(string).addClass('restaurant_image_visible');
 
-};
+}
+
+
+
 
 $(document).ready(function() {
     $(".vote").on('click', function(event) {
@@ -23,11 +26,11 @@ $(document).ready(function() {
         that = $(this).parent();
         // console.log($(this).data('url'));
         type = ($(this).data("type"));
-        id = ($(this).data("id")).split(" ")[1]
+        id = ($(this).data("id")).split(" ")[1];
         // console.log(id)
-        label = ($(this).data("id")).split(" ")[0]
+        label = ($(this).data("id")).split(" ")[0];
         // console.log(label)
-        user_id = ($(this).data("user"))
+        user_id = ($(this).data("user"));
         // console.log(user_id)
         $.ajax({
             url: $(this).data('url'),
@@ -46,7 +49,7 @@ $(document).ready(function() {
                 // console.log(response);
             }
         });
-    })
+    });
 
     $(".pure-input-1-4").on('click', function() {
         $("#slogan").fadeTo("slow", 0.4);
@@ -75,7 +78,7 @@ $(document).ready(function() {
     });
 
     setInterval(function() {
-        showImage()
+        showImage();
         currentImage++;
         // console.log("just outside if");
         // console.log(currentImage);
@@ -88,7 +91,7 @@ $(document).ready(function() {
             $('#restimage0').removeClass('restaurant_image_hidden');
             $('#restimage0').addClass('restaurant_image_visible');
             currentImage = 0;
-        };
+        }
     }, 5000);
 
     //---------------Modals JS------------
@@ -101,15 +104,15 @@ $(document).ready(function() {
     var fade = function() {
         $('.login-form').fadeToggle(400);
         console.log('fading');
-    }
+    };
 
 
     $(document).on('click', function(event) {
         if (!$(event.target).closest('.modal > form').length) {
             if ($('.login-form').is(":visible")) {
                 fade();
-            };
-        };
+            }
+        }
     });
 
 
@@ -124,8 +127,8 @@ $(document).ready(function() {
         if (!$(event.target).closest('.modal > form').length) {
             if ($('.signup-form').is(":visible")) {
                 $('.signup-form').fadeToggle(400);
-            };
-        };
+            }
+        }
     });
 
     //-------------login/signup submit------------
@@ -141,36 +144,47 @@ $(document).ready(function() {
                     password: $('.password').val()
                 }
             },
-            success: fade(),
+            success: function(response){
+                console.log(response.user);
+                fade();
+                $('li .login').attr('href', '/logout');
+                $('li .login').html('logout');
+                $('li .login').removeClass();
+                $('li .signup').attr('href', '/users/' + response.user);
+                $('li .signup').html('profile');
+                $('li .signup').removeClass();
+
+            },
             error: function(data) {
                 $('.login_errors > li').text("Email or Password is incorrect");
             }
         });
-    })
+    });
 
-    // $('.signup-form').submit(function() {
-    //     event.preventDefault();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: '/users',
-    //         data: {
-    //             user: {
-    //                 username: $('.username').val(),
-    //                 email: $('.email').val(),
-    //                 password: $('.password').val()
-    //             }
-    //             success: fade(),
-    //             error: function(data) {
-    //                 $('.login_errors > li').text("Email or Password is incorrect");
-    //             });
-    //     })
+    $('.signup-form').submit(function() {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/users',
+            data: {
+                user: {
+                    username: $('.username').val(),
+                    email: $('.email').val(),
+                    password: $('.password').val()
+                },
+                success: fade(),
+                error: function(data) {
+                    $('.login_errors > li').text("Email or Password is incorrect");
+                }
+        }
+    });
 
     $("#box").val('');
 
 
+});
+});
 
-
-})
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

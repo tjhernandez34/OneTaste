@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      render nothing: true
+      render json: {user: user.id}
     else
       error = "Email or Password is incorrect"
       render json: error, status: 422
